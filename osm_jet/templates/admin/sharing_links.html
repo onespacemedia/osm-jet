@@ -1,0 +1,45 @@
+
+{% if has_absolute_url %}
+<div class="sharing-links">
+  <h3>Share this on:</h3>
+  <input type="submit" value="Facebook" name="https://www.facebook.com/sharer.php?u={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}">
+
+  <input type="submit" value="Twitter" name="https://twitter.com/share?url={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}&amp;text={{ original.title|urlencode }}">
+
+  <input type="submit" value="LinkedIn" name="https://www.linkedin.com/shareArticle?url={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}&amp;title={{ original.title|urlencode }} ">
+</div>
+<script>
+jQuery('.sharing-links input').each(function() {
+  var $ = jQuery;
+  $(this).click(function(ev) {
+    ev.preventDefault();
+    var url = $(this).attr('name');
+    window.open(url, '_blank', 'height=400,width=600,menubar=no,status=no,toolbar=no');
+  })
+});
+</script>
+<style>
+  .admin-tools {
+    align-items: flex-start;
+    justify-content: space-between;
+
+    display: flex;
+  }
+
+  .sharing-links {
+    align-items: center;
+
+    display: flex;
+  }
+
+  .sharing-links h3 {
+    margin: 0;
+  }
+
+  .sharing-links input {
+    margin: 0 4px;
+
+    cursor: pointer;
+  }
+</style>
+{% endif %}

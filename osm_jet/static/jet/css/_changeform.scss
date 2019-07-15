@@ -1,0 +1,1327 @@
+/* stylelint-disable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type,order/order */
+@import "globals";
+
+/* OBJECT TOOLS */
+.admin-tools {
+  align-items: flex-start;
+  justify-content: space-between;
+
+  display: flex;
+}
+
+.sharing-links {
+  align-items: center;
+
+  display: flex;
+
+  h3 {
+    margin: 0;
+  }
+
+  input {
+    margin: 0 4px;
+
+    box-shadow: $box-shadow;
+    cursor: pointer;
+  }
+}
+
+/* FORM ROWS */
+.form-row {
+  padding: 15px 10px;
+
+  border-bottom: 1px solid $Color_InnerBorder;
+  overflow: hidden;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  img, input {
+    vertical-align: middle;
+  }
+
+  label input[type='checkbox'] {
+    margin-top: 0;
+    vertical-align: 0;
+  }
+
+  p {
+    padding-left: 0;
+  }
+
+  .select2 {
+    @include for-phone {
+      max-width: 100%;
+      width: auto !important;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+/* FORM LABELS */
+
+label {
+  .required &, &.required {
+    &::after {
+      content: '*';
+    }
+  }
+
+  .form-row.errors & {
+    color: $error-text-color;
+  }
+}
+
+/* RADIO BUTTONS */
+
+form {
+  ul.radiolist {
+    li {
+      list-style-type: none;
+    }
+
+    label {
+      display: inline;
+      float: none;
+    }
+
+    input[type='radio'] {
+      margin: -2px 4px 0 0;
+      padding: 0;
+    }
+  }
+
+  ul.inline {
+    margin-left: 0;
+    padding: 0;
+
+    li {
+      float: left;
+      padding-right: 7px;
+    }
+  }
+}
+
+/* ALIGNED FIELDSETS */
+
+.aligned {
+  label {
+    @include Font_Label;
+
+    display: block;
+    width: 160px;
+    float: left;
+    padding: 8px 10px 0 0;
+
+    font-weight: 600;
+
+    @include for-mobile {
+      display: block;
+      width: auto;
+      float: none;
+      margin-bottom: 8px;
+      padding: 0 0 0 2px;
+    }
+  }
+
+  label + p {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 170px;
+    padding: 6px 0;
+
+    @include for-mobile {
+      margin-left: 0;
+    }
+  }
+
+  ul label {
+    display: inline;
+    width: auto;
+    float: none;
+  }
+
+  .form-row input {
+    margin-bottom: 0;
+  }
+
+  .vCheckboxLabel {
+    display: inline-block;
+    width: auto;
+    float: none;
+    padding: 0 0 5px;
+    vertical-align: -3px;
+
+    line-height: 1.4;
+
+    cursor: pointer;
+
+    & + p.help {
+      margin-top: -4px;
+    }
+  }
+}
+
+form .aligned {
+  ul {
+    margin-left: 160px;
+    padding-left: 10px;
+
+    @include for-mobile {
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+
+  ul.radiolist {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+
+  p.help {
+    clear: left;
+    margin-top: 5px;
+    margin-left: 160px;
+    padding-left: 10px;
+
+    @include for-mobile {
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+
+  label + p.help {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  p.help:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  input + p.help,
+  textarea + p.help,
+  select + p.help {
+    margin-left: 160px;
+    padding-left: 10px;
+
+    @include for-mobile {
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+
+  ul li {
+    list-style: none;
+  }
+
+  table p {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+.colMS .aligned .vLargeTextField, .colMS .aligned .vXMLLargeTextField {
+  width: 350px;
+
+  @include for-mobile {
+    width: 100%;
+  }
+}
+
+.colM .aligned .vLargeTextField, .colM .aligned .vXMLLargeTextField {
+  width: 610px;
+
+  @include for-mobile {
+    width: 100%;
+  }
+}
+
+.checkbox-row p.help {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* FIELDSETS */
+
+fieldset {
+  .field-box {
+    float: left;
+    margin-right: 20px;
+  }
+
+  &.monospace textarea {
+    font-family: 'Bitstream Vera Sans Mono', Monaco, 'Courier New', Courier, monospace;
+  }
+}
+
+/* WIDE FIELDSETS */
+
+.wide label {
+  width: 200px;
+}
+
+form .wide p, form .wide input + p.help {
+  margin-left: 200px;
+
+  @include for-mobile {
+    margin-left: 0;
+  }
+}
+
+form .wide p.help {
+  padding-left: 38px;
+
+  @include for-mobile {
+    padding-left: 0;
+  }
+}
+
+.colM fieldset.wide .vLargeTextField, .colM fieldset.wide .vXMLLargeTextField {
+  width: 450px;
+
+  @include for-mobile {
+    width: 100%;
+  }
+}
+
+/* COLLAPSED FIELDSETS */
+
+/* MONOSPACE TEXTAREAS */
+
+fieldset.monospace textarea {
+  font-family: 'Bitstream Vera Sans Mono', Monaco, 'Courier New', Courier, monospace;
+}
+
+/* SUBMIT ROW */
+
+.submit-row {
+  align-items: flex-start;
+
+  display: flex;
+  margin: 20px 0;
+
+  @include for-mobile {
+    margin-bottom: 10px;
+  }
+
+  @include for-phone {
+    padding: 0 10px;
+  }
+
+  input {
+    box-shadow: $box-shadow;
+
+    &, &:visited, &:hover {
+      margin: 0 5px 15px 0;
+      padding: 0 20px;
+
+      font-size: 14px;
+
+      @include for-phone {
+        display: block;
+        width: 100%;
+        margin: 0 0 8px;
+      }
+    }
+
+    &.default {
+      margin: 0 8px 5px 0;
+
+      @include for-phone {
+        display: block;
+        width: 100%;
+        margin: 0 0 20px;
+      }
+    }
+  }
+
+  p {
+    margin: 0.3em;
+  }
+
+  a.deletelink {
+    display: inline-block;
+    height: 32px;
+    margin-left: auto;
+    padding: 0 20px;
+
+    font-size: 12px;
+    font-weight: lighter;
+    line-height: 32px;
+    text-align: center;
+    text-transform: uppercase;
+
+    background-color: $danger-button-background-color;
+    border: 0;
+    border-radius: $button-border-radius;
+    color: $danger-button-text-color;
+    outline: 0;
+    opacity: 1;
+    box-sizing: border-box;
+
+    transition: background $transitions-duration, box-shadow $transitions-duration, border $transitions-duration;
+
+    @include for-phone {
+      display: block;
+      width: 100%;
+    }
+
+    &:hover, &:focus {
+      background-color: $danger-button-hover-background-color;
+      color: $button-hover-text-color;
+    }
+
+    &:active {
+      background-color: $button-active-background-color;
+      color: $button-active-text-color;
+    }
+  }
+}
+
+body.popup .submit-row {
+  overflow: auto;
+}
+
+/* CUSTOM FORM FIELDS */
+
+.vSelectMultipleField {
+  vertical-align: top;
+}
+
+.vCheckboxField {
+  border: none;
+}
+
+.vDateField, .vTimeField {
+  margin-right: 2px;
+  margin-bottom: 4px;
+
+  border-radius: $button-border-radius 0 0 $button-border-radius !important;
+  border-right-width: 0 !important;
+
+  .results & {
+    border-radius: $button-border-radius !important;
+    border-right-width: 1px !important;
+  }
+
+  @include for-width(374px) {
+    border-radius: $button-border-radius !important;
+    border-right-width: 1px !important;
+  }
+
+  &-link {
+    @include for-width(374px) {
+      display: none;
+    }
+
+    display: inline-block;
+    vertical-align: top;
+
+    border: 1px solid #cbcbcb;
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+
+    span {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+
+      line-height: 32px !important;
+      text-align: center;
+
+      background-color: $button-background-color;
+      border-top-right-radius: $radius;
+      border-bottom-right-radius: $radius;
+      color: $button-text-color;
+      vertical-align: middle;
+    }
+
+    &:hover {
+      border-color: $primary-button-background-color;
+
+      span {
+        background-color: $primary-button-background-color;
+        color: $button-hover-text-color;
+      }
+    }
+  }
+}
+
+.vDateField {
+  min-width: 6.85em;
+}
+
+.vTimeField {
+  min-width: 4.7em;
+}
+
+.vDateField-link + .vTimeField {
+  margin-left: 10px;
+}
+
+.vURLField {
+  width: 26em;
+
+  @include for-phone {
+    width: 100%;
+  }
+}
+
+.vLargeTextField, .vXMLLargeTextField {
+  width: 48em;
+
+  @include for-mobile {
+    width: 100%;
+  }
+}
+
+.flatpages-flatpage #id_content {
+  height: 40.2em;
+}
+
+.module table .vPositiveSmallIntegerField {
+  width: 2.2em;
+}
+
+.vTextField {
+  width: 20em;
+
+  @include for-phone {
+    width: 100%;
+  }
+}
+
+.vIntegerField {
+  width: 6em;
+}
+
+.vBigIntegerField {
+  width: 10em;
+}
+
+.vForeignKeyRawIdAdminField {
+  width: 5em;
+}
+
+/* INLINES */
+
+.inline-group {
+  padding: 0;
+
+  background-color: $content-background-color;
+  border: 0;
+  border-radius: $button-border-radius;
+  box-shadow: $box-shadow;
+
+  &.compact {
+    position: relative;
+
+    min-height: 400px;
+
+    @include for-mobile {
+      position: static;
+
+      min-height: 0;
+    }
+  }
+
+  thead th {
+    padding: 8px 10px;
+  }
+
+  .aligned label {
+    width: 160px;
+  }
+
+  > fieldset.module {
+    padding: 0;
+  }
+}
+
+.inline-related {
+  position: relative;
+
+  h3 {
+    margin: 0;
+    padding: 20px 24px;
+
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid $Color_InnerBorder;
+    color: $text-color;
+
+    @include for-mobile {
+      padding: 10px 20px;
+
+      line-height: 2;
+
+      border-top: 1px solid $Color_InnerBorder;
+    }
+
+    > b {
+      margin-right: 10px;
+    }
+
+    .inline_label {
+      display: inline-block;
+      max-width: 100%;
+      margin-right: 10px;
+      padding: 4px 8px;
+
+      font-weight: normal;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      background: $content-contrast2-background-color;
+      border-radius: $radius;
+      color: $content-contrast2-text-color;
+      overflow: hidden;
+      box-sizing: border-box;
+      vertical-align: middle;
+
+      @include for-mobile {
+        line-height: normal;
+      }
+
+      ~ .inlinechangelink, ~ .inlineviewlink {
+        margin-right: 10px;
+
+        font-size: 18px;
+        vertical-align: middle;
+
+        &::before {
+          margin: 0;
+        }
+      }
+    }
+
+    span.delete, .inline-deletelink {
+      display: inline-block;
+      float: right;
+
+      color: $danger-button-background-color;
+      vertical-align: middle;
+      white-space: nowrap;
+
+      @include for-mobile {
+        float: none;
+        margin-left: 0;
+
+        line-height: normal;
+      }
+
+      label {
+        font-size: 12px;
+        vertical-align: middle;
+
+        cursor: pointer;
+
+        &::before {
+          display: inline-block;
+          margin-right: 4px;
+          margin-bottom: 3px;
+
+          font-family: 'jet-icons';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          line-height: 1;
+          text-transform: none;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          vertical-align: middle;
+
+          color: $danger-button-background-color;
+          speak: none;
+        }
+      }
+    }
+  }
+
+  fieldset {
+    width: 100%;
+    margin: 0;
+
+    background: #fff;
+
+    &.module {
+      background-color: inherit;
+      box-sizing: border-box;
+
+      h3 {
+        margin: 0;
+        padding: 24px;
+
+        background: transparent;
+      }
+    }
+  }
+}
+
+.inline-group.compact .inline-related h3 {
+  background: transparent;
+}
+
+.inline-related.tabular fieldset.module {
+  padding: 0;
+
+  table {
+    width: 100%;
+  }
+}
+
+.inline-navigation {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 200px;
+
+  background: $content-contrast-background-color;
+
+  @include for-mobile {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+
+    width: auto;
+  }
+
+  &-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+
+    height: 40px;
+
+    background: #fff;
+    border-right: 1px solid $Color_Border;
+
+    pointer-events: none;
+  }
+
+  &-bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+    height: 40px;
+
+    pointer-events: none;
+
+    @include for-mobile {
+      display: none;
+    }
+  }
+
+  .add-row {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+
+    height: 40px;
+
+    padding: 0 !important;
+
+    a {
+      align-items: center;
+
+      display: flex;
+      height: 100%;
+      padding: 0 10px 0 35px;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    padding: 40px 0 30px;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    @include for-mobile {
+      position: static;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: auto;
+
+      max-height: 200px;
+      padding-bottom: 10px;
+    }
+  }
+
+  &-item {
+    position: relative;
+
+    background: #fff;
+
+    transition: color $fast-transitions-duration;
+
+    &:nth-last-child(2) {
+      border-bottom: 1px solid $Color_Border;
+    }
+
+    &, &:visited, &:hover {
+      display: block;
+      padding: 8px 10px 8px 20px;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      border-top: 1px solid #cbcbcb;
+      color: #161616;
+      overflow: hidden;
+    }
+
+    html.no-touchevents &:hover,
+    &:active {
+      color: $Color_Emerald;
+    }
+
+    &.empty {
+      display: none;
+    }
+
+    &.selected {
+      font-weight: bold;
+
+      background-color: $content-active-background-color;
+      border-top: 1px solid $content-hover-background-color;
+      color: $content-active-text-color;
+      cursor: default;
+
+      & + .inline-navigation-item {
+        border-top: 1px solid $content-hover-background-color;
+      }
+
+      html.no-touchevents &:hover,
+      &:active {
+        color: #fff;
+      }
+    }
+
+    &.delete {
+      text-decoration: line-through;
+
+      background-color: $danger-button-background-color;
+      border-top: 1px solid $danger-button-background-color;
+      color: #fff;
+
+      & + .inline-navigation-item {
+        border-top: 1px solid $danger-button-background-color;
+      }
+
+      html.no-touchevents &:hover,
+      &:active {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.inline-group {
+  .tabular {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    table {
+      margin: 0;
+
+      box-shadow: none;
+    }
+
+    thead th, thead td {
+      font-weight: bold;
+
+      background: linear-gradient(to top, $content-background-color 0%, $content-contrast-background-color 100%);
+      color: $text-color;
+
+      a:link, a:visited {
+        color: $text-color;
+      }
+    }
+
+    td.original {
+      width: 1px;
+      padding-right: 0;
+      white-space: nowrap;
+
+      &.empty {
+        padding: 0;
+      }
+
+      p {
+        padding: 0;
+
+        .inlinechangelink, .inlineviewlink {
+          margin: 0;
+
+          font-size: 18px;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    tr.add-row td {
+      padding: 8px 10px;
+
+      border-bottom: 1px solid #eee;
+    }
+  }
+
+  .compact {
+    display: none;
+    margin-left: 200px;
+
+    @include for-mobile {
+      margin-left: 0;
+    }
+
+    &.selected {
+      display: block;
+    }
+  }
+
+  ul.tools {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    li {
+      display: inline;
+      padding: 0 5px;
+    }
+  }
+
+  div.add-row, .tabular tr.add-row td {
+    padding: 16px;
+
+    border: 0;
+  }
+
+  ul.tools a.add, div.add-row a, .tabular tr.add-row td a {
+    font-size: 12px;
+    font-weight: bold;
+    vertical-align: middle;
+
+    &::before {
+      @include font-icon;
+      content: $icon-add;
+
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.empty-form {
+  display: none;
+}
+
+/* RELATED FIELD ADD ONE / LOOKUP */
+
+form .related-widget-wrapper ul {
+  display: inline-block;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.clearable-file-input input {
+  margin-top: 0;
+}
+
+.changeform-navigation {
+  display: none;
+  float: left;
+  margin-bottom: 20px;
+
+  box-shadow: $box-shadow;
+
+  @include for-mobile {
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
+
+  &.initialized {
+    display: block;
+  }
+
+  &-button {
+    &, &:visited, &:hover {
+      width: 120px;
+      vertical-align: middle;
+      box-sizing: border-box;
+    }
+
+    &-icon {
+      font-weight: bold;
+      line-height: 32px;
+      vertical-align: middle;
+
+      &.left {
+        float: left;
+      }
+
+      &.right {
+        float: right;
+      }
+    }
+
+    &-label {
+      display: block;
+
+      text-align: center;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      opacity: 0.5;
+      overflow: hidden;
+
+      transition: opacity $transitions-duration;
+    }
+
+    &-icon.left + &-label {
+      margin-left: 16px;
+    }
+
+    &-icon.right + &-label {
+      margin-right: 16px;
+    }
+
+    &:hover &-label {
+      opacity: 1;
+    }
+
+    &.disabled:hover &-label {
+      opacity: 0.5;
+    }
+  }
+}
+
+.related-widget-wrapper-link {
+  opacity: 0.5;
+
+  transition: opacity $transitions-duration;
+
+  &:link {
+    opacity: 1;
+  }
+}
+
+.related-widget-wrapper {
+  align-items: center;
+
+  display: flex;
+}
+
+.related-widget-wrapper a {
+  margin-right: 10px;
+}
+
+.add-related, .add-another, .change-related, .delete-related, .related-lookup {
+  display: none;
+
+  &.initialized {
+    display: inline-block;
+    padding: 5px;
+
+    border: 1px solid $Color_Border;
+  }
+}
+
+.related-widget-wrapper-icon {
+  &::before {
+    @include font-icon;
+
+    position: relative;
+    left: 1px;
+
+    font-size: 12px;
+    vertical-align: middle;
+  }
+
+  .add-related &, .add-another & {
+    &::before {
+      content: $icon-add;
+    }
+  }
+
+  .change-related & {
+    &::before {
+      content: $icon-edit;
+    }
+  }
+
+  .delete-related & {
+    &::before {
+      content: $icon-cross;
+    }
+  }
+}
+
+.related-lookup {
+  border-radius: $radius;
+
+  &::before {
+    @include font-icon;
+
+    content: $icon-search;
+
+    font-size: 20px;
+    vertical-align: middle;
+  }
+}
+
+/* TABS */
+
+.changeform-tabs {
+  margin: 0;
+  padding: 0 15px;
+
+  background-color: $content-nav-background-color;
+  border-bottom: 2px solid $background-color;
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+
+  @include for-mobile {
+    padding: 10px 10px 5px;
+  }
+
+  &-item {
+    position: relative;
+
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 0;
+
+    line-height: normal;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    a {
+      @include Font_NavigationTab;
+
+      position: relative;
+      top: 2px;
+
+      display: inline-block;
+      padding: 12px 4px;
+
+      letter-spacing: 1px;
+
+      border-bottom: 2px solid transparent;
+      color: $tab-text-color;
+      opacity: 0.5;
+
+      transition: opacity $transitions-duration, color $transitions-duration;
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        top: calc(100% - 6px);
+        left: 0;
+
+        width: 100%;
+        height: 2px;
+
+        background-color: $Color_Emerald;
+
+        transform: scaleX(0);
+        transition: transform 0.2s;
+        transform-origin: left;
+      }
+
+      @include for-mobile {
+        top: auto;
+
+        padding: 8px 12px;
+
+        font-weight: normal;
+
+        background: $button-background-color;
+        border: 0;
+        border-radius: $button-border-radius;
+
+        color: $button-text-color;
+        opacity: 1;
+      }
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+
+    &.errors {
+      & a, & a:hover, & a:visited {
+        border: none;
+        color: $Color_Error;
+        opacity: 1;
+
+        &::before {
+          content: '';
+
+          position: absolute;
+          top: calc(100% - 6px);
+          left: 0;
+
+          width: 100%;
+          height: 2px;
+
+          background-color: $Color_Red;
+
+          transform: scaleX(1);
+          transform-origin: left;
+          transition: transform 0.2s;
+        }
+
+        @include for-mobile {
+          background: $danger-button-background-color;
+          color: $danger-button-text-color;
+        }
+      }
+    }
+
+    &.selected {
+      & a, & a:hover, & a:visited {
+        position: relative;
+
+        display: inline-block;
+
+        border: 0;
+        color: #fff;
+        opacity: 1;
+
+        &::before {
+          content: '';
+
+          position: absolute;
+          top: calc(100% - 6px);
+          left: 0;
+
+          width: 100%;
+          height: 2px;
+
+          background-color: $Color_Emerald;
+
+          transform: scaleX(1);
+          transform-origin: left;
+          transition: transform 0.2s;
+        }
+
+        @include for-mobile {
+          background: $button-hover-background-color;
+          color: $button-hover-text-color;
+        }
+      }
+    }
+  }
+
+  ~ .module, ~ .inline-group {
+    display: none !important;
+
+    border-radius: 0 0 $button-border-radius $button-border-radius;
+
+    &.selected {
+      display: block !important;
+    }
+  }
+
+  ~ .module {
+
+    &.initialized {
+      border-bottom: 0;
+      box-shadow: $box-shadow;
+    }
+  }
+}
+
+body.change-form #content-main > form > div {
+  > .module, > .inline-group {
+    display: none;
+
+    &.initialized {
+      display: block;
+    }
+  }
+}
+
+.dashboard-item-header-buttons .icon-edit {
+  &::before {
+    color: #fff;
+  }
+}
+
+.dashboard-item-header-buttons a {
+  &:hover {
+    color: #fff;
+  }
+}
+
+.dashboard-item-header-buttons .dashboard-item-remove {
+  &:hover {
+    color: $Color_Red;
+  }
+}
+
+#bookmarks-remove-dialog + .ui-dialog-buttonpane .ui-button:first-of-type {
+  background-color: $Color_Red;
+}
+
+.form-row .related-widget-wrapper-link {
+  align-items: center;
+  justify-content: center;
+
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  margin-right: 5px;
+
+  border: 1px solid $Color_Border;
+  border-radius: $radius;
+  box-sizing: border-box;
+
+  vertical-align: middle;
+
+  opacity: 1;
+}
+/* stylelint-enable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type */

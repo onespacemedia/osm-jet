@@ -1,0 +1,327 @@
+/* stylelint-disable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type,order/order */
+@import "globals";
+
+/* FORM BUTTONS */
+
+.button,
+input[type='submit'],
+input[type='button'],
+.object-tools a,
+.viewsitelink {
+  &, &:visited, &:hover {
+    display: inline-block;
+    max-width: 100%;
+    height: 32px;
+    padding: 0 10px;
+
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 32px;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    appearance: none;
+    background-color: $button-background-color;
+    border: 0;
+    border-radius: $button-border-radius;
+    box-shadow: $box-shadow;
+    color: $button-text-color;
+    cursor: pointer;
+    outline: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    transition: background $transitions-duration, color $transitions-duration;
+  }
+
+  &.default {
+    margin: 0 8px 0 0;
+    padding: 0 20px;
+
+    background-color: $primary-button-background-color;
+    color: $primary-button-text-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $primary-button-hover-background-color;
+      color: $primary-button-text-color;
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+  }
+
+  &:hover, &:focus {
+    background-color: transparent;
+    color: $Color_Dark;
+  }
+
+  &:active {
+    background-color: transparent;
+    color: $Color_Dark;
+  }
+}
+
+.button[disabled], input[type='submit'][disabled], input[type='button'][disabled] {
+  opacity: 0.4;
+}
+
+input[type='text'], input[type='email'], input[type='password'], input[type='url'], input[type='number'], textarea, select, .vTextField {
+  @include Font_Input;
+
+  height: $input-height;
+  margin: 0;
+  padding: 0 12px;
+
+  appearance: none;
+  background-color: $input-background-color;
+  border: 1px solid $input-border-color;
+  border-radius: $button-border-radius;
+  white-space: nowrap;
+  outline: 0;
+  box-sizing: border-box;
+  color: $input-text-color;
+
+  transition: background $transitions-duration, box-shadow $transitions-duration, border $transitions-duration;
+
+  //noinspection CssInvalidPseudoSelector
+  &::placeholder {
+    color: $input-placeholder-color;
+  }
+
+  @include for-mobile {
+    fieldset.module & {
+      box-shadow: inset 0 2px 6px 0 rgba(0, 0, 0, 0.04)
+    }
+  }
+
+  &:focus, fieldset.module &:focus {
+    border-color: $input-border-color;
+  }
+}
+
+.inline-deletelink {
+  display: inline-block;
+  height: 32px;
+
+  font-size: 12px;
+  font-weight: lighter;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+
+  border: 0;
+  border-radius: $button-border-radius;
+  box-sizing: border-box;
+  color: $Color_Red;
+  outline: 0;
+
+  transition: background $transitions-duration, box-shadow $transitions-duration, border $transitions-duration;
+
+  &:hover {
+    color: $Color_Red;
+  }
+
+  @include for-phone {
+    display: block;
+    width: 100%;
+  }
+}
+
+textarea {
+  height: auto;
+  padding: 12px;
+
+  line-height: normal;
+  white-space: pre-wrap;
+  vertical-align: top;
+}
+
+.segmented-button {
+  &, &:visited, &:hover {
+    display: inline-block;
+    height: 32px;
+    padding: 0 10px;
+
+    font-size: 12px;
+    line-height: 32px;
+    text-align: center;
+    text-transform: none;
+
+    background-color: $button-background-color;
+    border: 0;
+    border-radius: 0;
+    color: $button-text-color;
+
+    transition: background $transitions-duration;
+  }
+
+  &:hover, &:focus {
+    background-color: transparent;
+    color: $Color_Dark;
+  }
+
+  &:active {
+    background-color: $button-active-background-color;
+    color: $button-active-text-color;
+  }
+
+  &.disabled {
+    background-color: $button-background-color !important;
+    color: $button-text-color;
+  }
+
+  &.left {
+    border-radius: $button-border-radius 0 0 $button-border-radius;
+  }
+
+  &.right {
+    border-radius: 0 $button-border-radius $button-border-radius 0;
+  }
+}
+
+input[type='checkbox'] {
+  &#action-toggle {
+    display: none !important;
+  }
+
+  + label::before {
+    @include font-icon;
+
+    font-size: 12px;
+    letter-spacing: 10px;
+
+    color: $input-checkbox-color;
+
+    .action-checkbox-column & {
+      color: $content-contrast2-text-color;
+    }
+  }
+
+  &:checked + label::before {
+    color: $input-checkbox-checked-color;
+  }
+}
+
+/* SELECTOR */
+
+.selector {
+  display: none;
+}
+
+/* Save dropdown */
+.submit-row {
+  overflow: visible;
+}
+
+.submit-row .default {
+  float: left;
+
+  cursor: pointer;
+}
+
+.submit-row-dropdown {
+  position: relative;
+
+  display: inline-block;
+  margin-right: 8px;
+
+  font-size: 14px;
+  line-height: 32px;
+
+  border-radius: $button-border-radius;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+  span {
+    position: relative;
+
+    display: flex;
+    padding: 0 50px 0 30px;
+
+    text-align: center;
+
+    background-color: #fff;
+    border-radius: $button-border-radius;
+    user-select: none;
+  }
+
+  &:hover span {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.submit-row-dropdown span::after {
+  content: '';
+
+  position: absolute;
+  top: 9px;
+  right: 18px;
+
+  width: 8px;
+  height: 8px;
+
+  border: 0 solid currentColor;
+  border-width: 0 1px 1px 0;
+
+  transform: rotate(45deg);
+
+  transition: transform 0.2s, top 0.2s;
+}
+
+.submit-row-dropdown:hover span::after {
+  top: 14px;
+
+  transform: rotate(-135deg);
+}
+
+.submit-row-dropdown ul {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  left: 0;
+
+  flex-direction: column;
+
+  display: none;
+  margin: 0;
+  padding: 0;
+
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.submit-row-dropdown:hover ul {
+  display: flex;
+}
+
+.submit-row-dropdown ul li {
+  list-style-type: none;
+}
+
+.submit-row-dropdown ul li:last-child {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.submit-row-dropdown ul li input,
+.submit-row-dropdown ul li input:hover {
+  width: 100%;
+  margin: 0;
+
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.submit-row-dropdown ul li input:hover {
+  background-color: $Color_Emerald;
+  color: #fff;
+}
+
+.submit-row-dropdown ul li:last-child input {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+/* stylelint-enable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type,order/order */

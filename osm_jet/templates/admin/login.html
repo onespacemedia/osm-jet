@@ -1,0 +1,47 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static site %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static "admin/auth/login.css" %}" />
+{% endblock %}
+
+{% block main_content %}
+  <div class="ath-Container">
+    <div class="ath-Inner">
+      {% block content_above %}
+        <div class="ath-Above">
+          <div class="ath-Logo"></div>
+        </div>
+      {% endblock %}
+      <div class="ath-Wrapper">
+        <div class="ath-Form">
+          <form class="frm-Form" method="post">
+            {% if form.non_field_errors %}
+              {% for error in form.non_field_errors %}
+                <p class="frm-Error">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+
+            <form class="frm-Form" method="post">
+              {{ form.as_p }}
+
+              <div class="frm-Actions">
+                {% csrf_token %}
+
+                <button class="frm-Action" type="submit">Log in</button>
+              </div>
+            </form>
+          </form>
+        </div>
+        <div class="ath-Below">
+          {% if settings.SOCIAL_AUTH_GOOGLE_OAUTH2_KEY %}
+            <a class="ath-Link onespacemedia-login" href="{% url 'social:begin' 'google-oauth2' %}">
+              OSM staff login
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

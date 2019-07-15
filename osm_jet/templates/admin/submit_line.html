@@ -1,0 +1,28 @@
+{% load i18n admin_urls %}
+
+<div class="submit-row">
+  {% if show_save %}
+    <input type="submit" value="{% trans 'Save' %}" class="default" name="{% if is_popup %}_save{% else %}_continue{% endif %}" />
+  {% endif %}
+  {% if show_save_and_add_another or show_save_and_continue %}
+    <div class="submit-row-dropdown">
+      <span>Other save options</span>
+      <ul>
+        {% if show_save_and_add_another %}<li><input type="submit" value="Duplicate" name="_saveasnew" /></li>{% endif %}
+        {% if show_save_and_add_another %}<li><input type="submit" value="{% trans 'Save and add another' %}" name="_addanother" /></li>{% endif %}
+        {% if show_save_and_continue %}<li><input type="submit" value="Save and return" name="_save" /></li>{% endif %}
+      </ul>
+    </div>
+  {% endif %}
+  {% if original and original.get_absolute_url %}
+    <a href="{{ original.get_absolute_url }}?preview=1" target="_blank" class="viewsitelink">
+      {% trans "View on site" %}
+    </a>
+  {% endif %}
+  {% if show_delete_link %}
+    {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
+    <a href="{% add_preserved_filters delete_url %}" class="deletelink">
+      {% trans "Delete" %} {{ model_name }}
+    </a>
+  {% endif %}
+</div>

@@ -1,0 +1,97 @@
+.wdg-SelectMultiple {
+  display: flex;
+}
+
+.wdg-SelectMultiple_Controls {
+  flex-direction: column;
+  justify-content: center;
+
+  display: flex;
+  margin: 0 16px;
+}
+
+.wdg-SelectMultiple_Old,
+.wdg-SelectMultiple_New {
+  flex-direction: column;
+
+  display: flex;
+}
+
+.wdg-SelectMultiple .wdg-SelectMultiple_Search {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 0;
+}
+
+.wdg-SelectMultiple_Old select,
+.wdg-SelectMultiple_New select {
+  width: 250px;
+  height: 100px;
+  padding: 0;
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.wdg-SelectMultiple_Old option,
+.wdg-SelectMultiple_New option {
+  padding: 4px 8px;
+}
+
+.wdg-SelectMultiple_Old h2,
+.wdg-SelectMultiple_New h2 {
+  padding-top: 0;
+}
+
+.wdg-SelectMultiple_Control {
+  align-items: center;
+  justify-content: center;
+
+  display: flex;
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid #cbcbcb;
+  border-radius: 4px;
+
+  color: #000;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  transition: color 0.2s;
+}
+.wdg-SelectMultiple_Control:hover {
+  color: #42cf77;
+}
+.wdg-SelectMultiple_Control:first-child {
+  margin-bottom: 8px;
+}
+.wdg-SelectMultiple_Control svg {
+  width: 24px;
+  height: 24px;
+
+  fill: currentColor;
+}
+
+.wdg-SelectMultiple_Control-right {
+  transform: rotate(90deg);
+}
+
+.wdg-SelectMultiple_Control-left {
+  transform: rotate(-90deg);
+}
+
+.wdg-SelectMultiple_SubText {
+  align-self: flex-start;
+
+  color: #757575;
+  font-size: 14px;
+  cursor: pointer;
+}
+.wdg-SelectMultiple_SubText:hover {
+  text-decoration: underline;
+}
+
+.selectfilter {
+  height: unset;
+}

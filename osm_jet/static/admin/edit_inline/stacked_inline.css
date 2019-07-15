@@ -1,0 +1,5 @@
+/* stylelint-disable */
+.inline-related[id$='-empty'] {
+  display: none;
+}
+/* stylelint-enable */

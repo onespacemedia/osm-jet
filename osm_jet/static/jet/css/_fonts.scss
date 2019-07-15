@@ -1,0 +1,55 @@
+@mixin Font_12 {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  @mixin Font_14 {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @mixin Font_HelpText {
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #757575
+  }
+
+  @mixin Font_Uppercase {
+    text-transform: uppercase;
+    letter-spacing: .0625rem;
+  }
+
+  @mixin Font_Navigation {
+    font-size: 14px;
+  }
+
+ @mixin Font_Navigation-uppercase {
+    text-transform: uppercase;
+    letter-spacing: .0625rem;
+    font-size: 11px;
+ }
+
+  @mixin Font_Label {
+    font-size: 14px;
+    line-height: 16px;
+
+    word-wrap: break-word;
+  }
+
+  @mixin Font_Input {
+    font-size: 14px;
+  }
+
+  @mixin Font_NavigationTab {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  @mixin Font_Logo {
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+  }

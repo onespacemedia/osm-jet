@@ -1,0 +1,193 @@
+<div class="smp-Sitemap js-Sitemap">
+  {% if sitemap_json.entries %}
+    <ul class="smp-List smp-List-first">
+      {% for entry in sitemap_json.entries %}
+        <li class="smp-ListItem">
+          {% include "admin/dashboard_modules/includes/sitemap_item.html" with entry=entry %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    You haven't made a homepage yet! {% if sitemap_json.canAdd %}<a href="{{ createHomepageUrl }}">Make one.</a>{% endif %}
+  {% endif %}
+</div>
+
+<style>
+/* To remove when moved to the theme */
+.smp-ListItem {
+  padding: 0 !important;
+
+  border: 0 !important;
+}
+
+.smp-Content {
+  align-items: center;
+
+  display: flex;
+  padding: 16px 0;
+
+  border-bottom: 1px solid #cbcbcb;
+}
+
+.smp-Sitemap .smp-Content_Title {
+  margin-left: 12px;
+
+  font-weight: 700;
+
+  color: #000;
+}
+.smp-Sitemap .smp-Content_Title:hover {
+  font-weight: 700;
+
+  color: #42cf77;
+}
+
+.smp-Content_Actions {
+  align-items: center;
+
+  display: flex;
+  margin-right: 24px;
+  margin-left: auto;
+}
+
+.smp-Content_Languages {
+  display: flex;
+}
+
+.smp-Content_Language {
+  margin-right: 20px;
+  padding: 0 !important;
+}
+
+.smp-Content_Actions svg {
+  width: 18px;
+  height: 18px;
+  margin-right: 20px;
+}
+
+.smp-Content .sidebar-link-icon {
+  color: rgba(0,0,0,0.7);
+}
+.smp-Content .sidebar-link-icon:hover {
+  color: #42cf77;
+}
+
+.smp-List {
+  padding-left: 20px !important;
+}
+.smp-List.smp-List-first {
+  padding-left: 0 !important;
+}
+
+.smp-Content_Arrows {
+  flex-direction: column;
+  justify-content: center;
+
+  display: flex;
+  height: 18px;
+}
+
+.smp-Content_MoveUp {
+  transform: rotate(-90deg);
+}
+.smp-Content_MoveDown {
+  transform: rotate(90deg);
+}
+.smp-Content_Move,
+.smp-Content_Move svg {
+  width: 8px;
+  height: 8px;
+}
+.smp-Content_Move {
+  display: flex;
+
+  cursor: pointer;
+}
+.smp-Content_Move svg:hover {
+  fill: #42cf77;
+}
+.smp-ListItem:first-child > .smp-Item  > .smp-Content > .smp-Content_Arrows > .smp-Content_MoveUp {
+  display: none;
+}
+.smp-ListItem:last-child > .smp-Item  > .smp-Content > .smp-Content_Arrows > .smp-Content_MoveDown {
+  display: none;
+}
+</style>
+
+<script>
+  function getCookieValue(name) {
+    var cookieValue = null
+
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';')
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim()
+
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
+          break
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  function requestReceived (direction, item) {
+    console.log(direction)
+    if (direction === 'up') {
+      var otherItem = item.previousElementSibling
+      item.parentNode.insertBefore(item, otherItem)
+    } else if (direction === 'down') {
+      var otherItem = item.nextElementSibling
+
+      if (otherItem) {
+        item.parentNode.insertBefore(item, otherItem.nextElementSibling);
+      } else {
+        item.parentNode.appendChild(item);
+      }
+    }
+
+    document.querySelector('.js-Sitemap').classList.remove('smp-Sitemap-moving')
+  }
+
+  function sitemapMoveHandler (direction, item) {
+    var sitemap = document.querySelector('.js-Sitemap')
+    // Prevent simultanious page moves.
+    if (sitemap.classList.contains('smp-Sitemap-moving')) {
+      return
+    }
+    if (direction !== 'up' && direction !== 'down') {
+      return
+    }
+
+    // Disable the sitemap.
+    sitemap.classList.add('smp-Sitemap-moving')
+
+    var request = new XMLHttpRequest();
+    request.open('POST', '{{ sitemap_json.moveUrl }}', true)
+    request.setRequestHeader('X-CSRFToken', getCookieValue('csrftoken'));
+    request.onload = requestReceived(direction, item)
+    request.onerror = function() {
+      // There was a connection error of some sort
+      console.log('error')
+    }
+
+    var data = new FormData()
+    data.append('page', item.dataset.pageId);
+    data.append('direction', direction);
+
+    request.send(data)
+  }
+
+  // Add the move controls.
+  document.addEventListener('DOMContentLoaded', function () {
+    var sitemapItems = document.querySelectorAll('.js-Sitemap_Item')
+    for (var i = 0; i < sitemapItems.length; i++) {
+      var moveUpButton = sitemapItems[i].querySelector('.js-Sitemap_MoveUp')
+      var moveDownButton = sitemapItems[i].querySelector('.js-Sitemap_MoveDown')
+      moveUpButton.addEventListener('click', sitemapMoveHandler.bind(this, 'up', sitemapItems[i]))
+      moveDownButton.addEventListener('click', sitemapMoveHandler.bind(this, 'down', sitemapItems[i]))
+    }
+  })
+</script>

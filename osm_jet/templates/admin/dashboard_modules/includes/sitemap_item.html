@@ -1,0 +1,44 @@
+<div class="smp-Item">
+  <div class="smp-Content">
+    <div class="smp-Content_Arrows">
+      <div class="smp-Content_Move smp-Content_MoveUp js-Sitemap_MoveUp" title="Move this page up">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="m18.328 97.5v-95l63.344 47.5z"/>
+        </svg>
+      </div>
+      <div class="smp-Content_Move smp-Content_MoveDown js-Sitemap_MoveDown" title="Move this page down">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="m18.328 97.5v-95l63.344 47.5z"/>
+        </svg>
+      </div>
+    </div>
+    <a {% if entry.canChange %} href="{{ entry.changeUrl }}"{% endif %} class="smp-Content_Title">{{ entry.title }}</a>
+    <div class="smp-Content_Actions">
+      {% if entry.extra_languages %}
+        <ul class="smp-Content_Languages">
+          {% for language_page in entry.extra_languages %}
+            <li class="smp-Content_Language">
+              <a href="{{ language_page.changeURL }}">{{ language_page.language.code|lower }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if not entry.isOnline %}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 17">
+          <path fill="#000" fill-rule="evenodd" d="M10 3.8a4.2 4.2 0 0 1 3.9 5.7l2.4 2.5c1.3-1 2.2-2.4 2.9-4A9.9 9.9 0 0 0 6.7 2.3l1.8 1.8a4 4 0 0 1 1.5-.3zM1.7 1.6l1.9 1.9.4.3A9.8 9.8 0 0 0 .8 8a9.9 9.9 0 0 0 12.8 5.6l.4.3 2.4 2.4 1.1-1L2.7.5l-1 1zm4.6 4.6l1.3 1.3-.1.5a2.5 2.5 0 0 0 3 2.4l1.3 1.3a4.1 4.1 0 0 1-5.5-5.5zm3.6-.7l2.6 2.6c0-1.5-1.1-2.6-2.5-2.6H10z" opacity=".6"/>
+        </svg>
+      {% endif %}
+
+      <a href="{{ entry.siteUrl }}" class="smp-Content_Site" target="_blank"><span class="sidebar-link-icon icon-open-external"></span></a>
+    </div>
+  </div>
+  {% if entry.children %}
+    <ul class="smp-List">
+      {% for entry in entry.children %}
+        <li class="smp-ListItem js-Sitemap_Item" data-page-id="{{ entry.pageId }}">
+          {% include "admin/dashboard_modules/includes/sitemap_item.html" with entry=entry %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

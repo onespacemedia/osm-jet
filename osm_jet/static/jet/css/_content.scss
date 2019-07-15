@@ -1,0 +1,345 @@
+/* stylelint-disable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type,order/order */
+@import "globals";
+
+/* LINKS */
+
+a {
+  font-weight: normal;
+  text-decoration: none;
+
+  color: $link-color;
+}
+
+a:hover, a:focus {
+  color: $hover-link-color;
+}
+
+a img {
+  border: none;
+}
+
+/* GLOBAL DEFAULTS */
+
+p, ol, ul, dl {
+  margin: 0.2em 0 0.8em;
+}
+
+p {
+  padding: 0;
+
+  line-height: 140%;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0 0 20px;
+
+  font-size: 20px;
+  font-weight: 300;
+}
+
+h2 {
+  margin: 1em 0 0.5em;
+
+  font-size: 16px;
+}
+
+h2.subhead {
+  margin-top: 0;
+
+  font-weight: normal;
+}
+
+h3 {
+  margin: 0.8em 0 0.3em;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+h4 {
+  margin: 1em 0 0.8em;
+  padding-bottom: 3px;
+
+  font-size: 12px;
+}
+
+h5 {
+  margin: 1.5em 0 0.5em;
+
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+ul li {
+  padding: 0;
+  list-style-type: square;
+}
+
+li ul {
+  margin-bottom: 0;
+}
+
+dt, dd {
+  line-height: 20px;
+}
+
+dt {
+  margin-top: 4px;
+
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+blockquote {
+  margin-left: 2px;
+  padding-left: 10px;
+
+  font-size: 11px;
+
+  border-left: 5px solid #ddd;
+  color: #777;
+}
+
+code, pre {
+  font-family: 'Bitstream Vera Sans Mono', Monaco, 'Courier New', Courier, monospace;
+
+  font-size: 12px;
+
+  color: #666;
+}
+
+pre.literal-block {
+  margin: 10px;
+  padding: 6px 8px;
+
+  background: #eee;
+}
+
+code strong {
+  color: #930;
+}
+
+hr {
+  height: 1px;
+  clear: both;
+  margin: 0;
+  padding: 0;
+
+  font-size: 1px;
+  line-height: 1px;
+
+  background-color: #eee;
+  border: none;
+  color: #eee;
+}
+
+/* TEXT STYLES & MODIFIERS */
+
+.small {
+  font-size: 11px;
+}
+
+.tiny {
+  font-size: 10px;
+}
+
+p.tiny {
+  margin-top: -2px;
+}
+
+.mini {
+  font-size: 10px;
+}
+
+p.mini {
+  margin-top: -3px;
+}
+
+.help, p.help, form p.help {
+  font-size: 12px;
+
+  color: #757575;
+}
+
+.help-tooltip {
+  cursor: help;
+}
+
+p img, h1 img, h2 img, h3 img, h4 img, td img {
+  vertical-align: middle;
+}
+
+.quiet, a.quiet:link, a.quiet:visited {
+  font-weight: normal;
+
+  color: $dim-text-color;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.example {
+  margin: 10px 0;
+  padding: 5px 10px;
+
+  background: #efefef;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* ACTION ICONS */
+
+.addlink {
+  vertical-align: middle;
+
+  &::before {
+    @include font-icon;
+
+    content: $icon-add;
+
+    margin-right: 8px;
+
+    font-size: 16px;
+    vertical-align: middle;
+  }
+}
+
+.changelink, .inlinechangelink {
+  vertical-align: middle;
+
+  &::before {
+    @include font-icon;
+
+    content: $icon-edit-icon;
+
+    margin-right: 8px;
+
+    font-size: 16px;
+    vertical-align: middle;
+  }
+}
+
+.changelink {
+  &:hover {
+    color: #161616;
+  }
+}
+
+.deletelink {
+  vertical-align: middle;
+
+  opacity: 0;
+
+  &::before {
+    @include font-icon;
+
+    content: $icon-cross;
+
+    margin-right: 8px;
+
+    font-size: 16px;
+    vertical-align: middle;
+  }
+}
+
+.inlineviewlink {
+  vertical-align: middle;
+
+  &::before {
+    @include font-icon;
+
+    margin-right: 4px;
+
+    font-size: 18px;
+    vertical-align: middle;
+  }
+}
+
+.icon-user::before {
+  font-size: 18px;
+}
+
+/* BOOLEAN ICONS */
+
+img[src$='admin/img/icon-yes.gif'], img[src$='admin/img/icon-yes.svg'],
+img[src$='admin/img/icon-no.gif'], img[src$='admin/img/icon-no.svg'],
+img[src$='admin/img/icon-unknown.gif'], img[src$='admin/img/icon-unknown.svg'] {
+  display: none;
+
+  + span {
+    font-weight: bold;
+
+    color: $success-text-color;
+  }
+}
+
+img[src$='admin/img/icon-yes.gif'] + span, img[src$='admin/img/icon-yes.svg'] + span {
+  color: $success-text-color;
+}
+
+img[src$='admin/img/icon-no.gif'] + span, img[src$='admin/img/icon-no.svg'] + span {
+  color: $warning-text-color;
+}
+
+/* LOADING INDOCATOR */
+
+.loading-indicator {
+  display: inline-block;
+
+  font-size: 32px;
+
+  color: $button-hover-background-color;
+
+  animation: spin 4s linear infinite;
+
+  &-wrapper {
+    padding: 40px 0;
+
+    text-align: center;
+  }
+}
+
+.icon-clock,
+.icon-user {
+  font-size: 16px;
+}
+/* stylelint-enable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type,order/order */

@@ -1,0 +1,191 @@
+@import "../globals";
+
+.ui-widget-content {
+  color: $text-color;
+  border-color: $content-border-color;
+  padding: 0;
+}
+
+.ui-widget, .ui-timepicker-table {
+  &.ui-widget-content {
+    background: $content-background-color;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.ui-widget {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.ui-widget-header {
+  background-color: $content-contrast2-background-color;
+  background-image: none;
+  border: 0;
+  color: $content-contrast2-text-color;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  border-bottom: 1px solid #cbcbcb;
+  border-radius: 0;
+
+  a {
+    color: $content-contrast2-text-color;
+  }
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  border: 1px solid $jquery-ui-state-default-border-color;
+  background: $jquery-ui-state-default-background-color;
+  font-weight: bold;
+  color: $jquery-ui-state-default-text-color;
+  border-radius: $button-border-radius;
+}
+
+.ui-widget-header .ui-state-default {
+  background: none;
+  color: $content-contrast2-text-color;
+  border: 0;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+  border: 1px solid $jquery-ui-state-hover-border-color;
+  background: $jquery-ui-state-hover-background-color;
+  font-weight: bold;
+  color: $jquery-ui-state-hover-text-color;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  border: 1px solid $jquery-ui-state-active-border-color;
+  background: $jquery-ui-state-active-background-color;
+  font-weight: bold;
+  color: $jquery-ui-state-active-text-color;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  border: 1px solid $jquery-ui-state-highlight-border-color;
+  background: $jquery-ui-state-highlight-background-color;
+  color: $jquery-ui-state-highlight-text-color;
+}
+
+.ui-dialog {
+  @include for-phone {
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+  }
+}
+
+.ui-dialog-buttonpane {
+  background: $jquery-ui-buttonpane-background;
+  margin: .5em -0.2em -0.2em -0.2em;
+
+  & .ui-button {
+    @include Button;
+
+    &:hover {
+      background-color: $Color_Dark;
+      border-color: $Color_Dark;
+      color: #fff;
+    }
+  }
+}
+
+.ui-icon {
+  @include font-icon;
+  font-size: 16px;
+  font-weight: bold;
+  background: none !important;
+  text-indent: 0;
+  overflow: visible;
+}
+
+.ui-widget-overlay {
+  background: $jquery-ui-overlay-color;
+  opacity: 0.5;
+  filter: Alpha(Opacity=50);
+}
+
+.ui-tooltip {
+  background: $jquery-ui-tooltip-background-color !important;
+  padding: 5px 10px;
+  color: $jquery-ui-tooltip-text-color;
+  border: 0;
+  box-shadow: none !important;
+  opacity: 0.8;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.ui-datepicker, .ui-timepicker {
+  table {
+    margin: 0 0 .4em;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  th {
+    background: inherit;
+    color: inherit;
+    text-transform: inherit;
+  }
+
+  tbody tr {
+    border-bottom: inherit;
+
+    &:nth-child(odd) {
+      background-color: inherit;
+    }
+  }
+}
+
+.ui-datepicker table {
+  margin: 0 0 .4em;
+}
+
+.ui-timepicker-table table {
+  margin: .15em 0 0;
+}
+
+.ui-button-text-only .ui-button-text {
+  padding: 0;
+}
+
+.ui-dialog-titlebar-close {
+  box-shadow: none;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #d0021b;
+  }
+}
+
+.ui-dialog-content {
+  padding: 20px;
+}
+
+#bookmarks-add-form p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#bookmarks-add-form {
+
+  & input[type="text"] {
+    margin-bottom: 15px;
+  }
+}
+
+.ui-dialog-buttonset {
+
+  & .ui-button:first-of-type {
+    background-color: #42cf77;
+    color: #fff;
+
+    &:hover {
+      background-color: #3caf4a;
+    }
+  }
+}

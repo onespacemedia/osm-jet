@@ -1,0 +1,259 @@
+/*
+ * Customizable variables
+ * Update these variable to create theme
+ */
+
+/*
+ * Base Colours
+ */
+
+$Color_Blue: #302dbe;
+$Color_Blue-light: #4a90e2;
+$Color_MineShaft: #2c2c2c;
+$Color_Emperor: #525252;
+$Color_Grey: #808080;
+$Color_Grey-light: #9b9b9b;
+$Color_Silver: #757575;
+$Color_Grey-lightest: #e9e5e5;
+$Color_WildSand: #f5f5f5;
+$Color_Grey-blue: #3b4449;
+$Color_Red: #d0021b;
+$Color_Tamarillo: #8b1325;
+$Color_Emerald: #42cf77;
+$Color_CheapEmerald: #3caf4a;
+$Color_Dark: #161616;
+
+$Color_Anchor: $Color_CheapEmerald;
+$Color_Body: #161616;
+$Color_Border: #cbcbcb;
+$Color_InnerBorder: #eaeaea;
+$Color_Error: #b13a4a;
+
+/*
+ * General
+ */
+
+$background-color: #f7f7f7;
+$text-color: $Color_Body;
+$dim-text-color: $Color_Body;
+$error-text-color: $Color_Error;
+
+$link-color: $Color_Silver;
+$hover-link-color: $Color_Emerald;
+
+$contrast-color: $Color_Emerald;
+
+$table-text-color: $Color_Silver;
+
+$table-header-cell-color: #fff;
+$table-header-cell-icon-color: rgba(255, 255, 255, 0.5);
+$table-header-cell-background: #000;
+$table-header-cell-hover-color: #fff;
+$table-header-cell-active-color: #fff;
+$table-link-color: $Color_Body;
+
+$sitemap-header-background: #161616;
+$sitemap-header-text: #fff;
+
+$font: Arial, sans-serif !default;
+$font-size: 14px;
+
+$radius: 4px;
+
+/*
+* Sidebar
+*/
+
+$sidebar-width: 250px;
+
+$sidebar-background-color: $Color_Dark;
+$sidebar-contrast-background-color: $sidebar-background-color;
+$sidebar-contrast-text-color: #fff;
+
+$sidebar-arrow-color: $dim-text-color;
+$sidebar-hover-arrow-color: $hover-link-color;
+
+$sidebar-action-color: $dim-text-color;
+$sidebar-hover-action-color: $hover-link-color;
+
+$sidebar-title-action-color: $dim-text-color;
+$sidebar-hover-title-action-item-color: $hover-link-color;
+
+$sidebar-text-color: #fff;
+$sidebar-icon-color: #fff;
+$sidebar-link-color: #fff;
+$sidebar-hover-link-color: $hover-link-color;
+$sidebar-hover-background-color: $Color_MineShaft;
+
+$sidebar-popup-search-input-background-color: #e3ecf2;
+$sidebar-popup-search-input-text-color: #7f8fa4;
+$sidebar-popup-search-input-placeholder-color: #bdcbde;
+
+$sidebar-popup-background-color: #fff;
+$sidebar-popup-text-color: $text-color;
+$sidebar-popup-overlay-color: #000;
+
+$sidebar-popup-link-text-color: $text-color;
+$sidebar-popup-hover-link-color: #fff;
+$sidebar-popup-hover-link-background-color: $hover-link-color;
+
+$sidebar-popup-background-color: #fff;
+
+/*
+* Top
+*/
+
+$top-height: 32px;
+
+$top-text-color: $text-color;
+$top-separator-color: $Color_Border;
+$top-link-color: $text-color;
+$top-hover-link-color: $hover-link-color;
+$top-border-color: $Color_Border;
+$top-icon-color: $text-color;
+
+$top-dropdown-background-color: $Color_Dark;
+$top-dropdown-text-color: #fff;
+$top-dropdown-contrast-background-color: $Color_Dark;
+$top-dropdown-contrast-text-color: #fff;
+$top-dropdown-border-color: $Color_Border;
+$top-dropdown-link-color: #fff;
+$top-dropdown-hover-link-color: $hover-link-color;
+$top-dropdown-icon-color: $Color_CheapEmerald;
+$top-dropdown-selected-color: #000;
+
+/*
+* Content
+*/
+
+$content-background-color: #fff;
+$content-contrast-background-color: $Color_WildSand; //inline list bg
+$content-contrast2-background-color: #fff; //table header
+$content-contrast3-background-color: #eef3f7; //dashboard, delete collapsable
+$content-selected-background-color: #e7f3ed;
+$content-contrast2-text-color: $text-color;
+$content-border-color: $Color_Border; //row bottom
+$content-border2-color: transparent; //table bottom
+$content-selected-border-color: $Color_Border;
+$content-nav-background-color: $Color_Dark;
+
+$box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+
+$tab-text-color: #fff;
+$tab-selected-text-color: $Color_Emerald;
+$tab-selected-border-color: $Color_Emerald;
+$tab-error-border-color: $Color_Error;
+
+$content-active-background-color: $Color_Emerald;
+$content-hover-background-color: $Color_Emerald;
+$content-active-text-color: #fff;
+$content-text-color: #161616;
+
+/*
+* Buttons
+*/
+
+$button-background-color: #fff;
+$button-hover-background-color: $Color_Emerald;
+$button-active-background-color: $contrast-color;
+$button-text-color: #161616;
+$button-hover-text-color: #fff;
+$button-active-text-color: #fff;
+
+$primary-button-background-color: $Color_Emerald;
+$primary-button-hover-background-color: $Color_CheapEmerald;
+$primary-button-text-color: #fff;
+
+$danger-button-background-color: #d0021b;
+$danger-button-hover-background-color: #b11b1b;
+$danger-button-active-background-color: #b11b1b;
+$danger-button-text-color: #fff;
+
+$background-button-background-color: #fff;
+$background-button-text-color: #7f8fa4;
+
+$button-border-radius: 4px;
+
+/*
+* Inputs
+*/
+
+$input-background-color: #fff;
+$input-contrast-background-color: #e3ecf2;
+$input-border-color: $Color_Border;
+$input-hover-background-color: #1cacfc;
+$input-icon-color: $link-color;
+$input-text-color: $text-color;
+$input-contrast-text-color: #7f8fa4;
+$input-hover-text-color: #fff;
+$input-selected-text-color: $contrast-color;
+$input-disabled-text-color: $Color_Dark;
+$input-placeholder-color: #999;
+$input-shadow-color: transparentize($contrast-color, 0.25);
+$input-checkbox-color: $Color_Border;
+$input-checkbox-checked-color: $Color_Emerald;
+
+$background-input-background-color: #fff;
+$background-input-border-color: #fff;
+$background-input-text-color: $text-color;
+
+/*
+* Messages
+*/
+
+$warning-color: $Color_Error;
+$warning-text-color: #fff;
+$info-color: $Color_Blue;
+$info-text-color: #fff;
+$success-color: $Color_Emerald;
+$success-text-color: #fff;
+
+/*
+* Login
+*/
+
+$login-background-color: $sidebar-background-color;
+$login-title-text-color: #adc;
+$login-title-contrast-text-color: #fff;
+$login-header-background-color: $content-contrast2-background-color;
+$login-header-text-color: $content-contrast2-text-color;
+$login-content-background-color: #fff;
+
+/*
+* jQuery UI
+*/
+
+$jquery-ui-buttonpane-background: $content-contrast2-background-color;
+
+$jquery-ui-state-default-background-color: $input-background-color;
+$jquery-ui-state-default-border-color: $input-border-color;
+$jquery-ui-state-default-text-color: $input-text-color;
+
+$jquery-ui-state-hover-background-color: $button-hover-background-color;
+$jquery-ui-state-hover-border-color: $button-hover-background-color;
+$jquery-ui-state-hover-text-color: $button-hover-text-color;
+
+$jquery-ui-state-active-background-color: $button-active-background-color;
+$jquery-ui-state-active-border-color: $button-active-background-color;
+$jquery-ui-state-active-text-color: $button-active-text-color;
+
+$jquery-ui-state-highlight-background-color: $input-background-color;
+$jquery-ui-state-highlight-border-color: $hover-link-color;
+$jquery-ui-state-highlight-text-color: $hover-link-color;
+
+$jquery-ui-overlay-color: #161616;
+
+$jquery-ui-tooltip-background-color: #161616;
+$jquery-ui-tooltip-text-color: #fff;
+
+/*
+* Charts
+*/
+
+$chart-fillColor: transparentize($hover-link-color, 0.75);
+$chart-strokeColor: $hover-link-color;
+$chart-pointColor: #fff;
+$chart-pointHighlightFill: $hover-link-color;
+$chart-scaleGridLineColor: transparentize(#000, 0.9);
+$chart-scaleLineColor: transparentize(#000, 0.9);
+$chart-scaleFontColor: $content-contrast2-text-color;

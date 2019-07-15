@@ -1,0 +1,654 @@
+/* stylelint-disable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type,order/order */
+@import "globals";
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+
+  width: $sidebar-width;
+
+  background-color: $sidebar-background-color;
+  color: $sidebar-text-color;
+
+  transform: translate3d(-100%, 0, 0);
+  transition: background-color $transitions-duration, transform $transitions-duration;
+
+  @include for-mobile {
+    width: 360px;
+    padding-bottom: 0;
+
+    transition: transform $transitions-duration cubic-bezier(0, 0.5, 0.5, 1);
+  }
+
+  @include for-phone {
+    width: 80%;
+  }
+
+  &.sidebar-opened {
+    transform: none;
+
+    @include for-mobile {
+      box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  body.menu-pinned & {
+    @include for-desktop {
+      transform: none;
+    }
+  }
+
+  &-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+
+    background: #000;
+    opacity: 0;
+  }
+
+  &-header {
+    height: $sidebar-header-height;
+
+    line-height: $sidebar-header-height;
+
+    transition: transform $transitions-duration;
+
+    &.sidebar-opened {
+      @include for-mobile {
+        transform: translate3d(360px, 0, 0);
+      }
+
+      @include for-phone {
+        transform: translate3d(80%, 0, 0);
+      }
+    }
+
+    &-wrapper {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 6;
+
+      display: none;
+
+      background-color: $sidebar-background-color;
+      color: $sidebar-text-color;
+
+      transition: background-color $transitions-duration, transform $transitions-duration;
+
+      @include for-mobile {
+        display: block;
+
+        body.scroll-to-bottom & {
+          transform: translate3d(0, -100%, 0);
+        }
+      }
+
+      &.sidebar-opened {
+        background-color: $sidebar-contrast-background-color;
+
+        transform: none !important;
+      }
+    }
+
+    &-menu {
+      display: inline-block;
+      padding: 0 16px;
+
+      font-size: 14px;
+      line-height: $sidebar-header-height;
+      text-transform: uppercase;
+
+      border-right: 1px solid $sidebar-contrast-background-color;
+      color: $sidebar-link-color;
+
+      &-icon {
+        font-size: 16px;
+        vertical-align: middle;
+
+        &.icon-cross {
+          display: none;
+
+          font-size: 20px;
+
+          color: #fff;
+        }
+      }
+    }
+
+    &.sidebar-opened &-menu-icon {
+      &.icon-menu {
+        display: none;
+      }
+
+      &.icon-cross {
+        display: inline;
+      }
+    }
+  }
+
+  &-close {
+    display: none;
+    float: right;
+    margin: 12px 18px 0 12px;
+    padding: 4px;
+
+    background-color: $sidebar-popup-search-input-background-color;
+    border-radius: $button-border-radius;
+
+    @include for-mobile {
+      display: inline-block;
+    }
+
+    &-icon {
+      font-size: 28px;
+      font-weight: bold;
+      vertical-align: middle;
+
+      color: $sidebar-popup-search-input-text-color;
+    }
+  }
+
+  &-wrapper {
+    height: 100%;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    transform: translate3d(0, 0, 0);
+  }
+
+  &-section {
+    padding: 20px 0;
+
+    border-bottom: 1px solid $sidebar-contrast-background-color;
+
+    transition: border-bottom-color 0.3s;
+
+    @include for-mobile {
+      padding: 10px 0;
+    }
+
+    &:last-child, &.last {
+      border-bottom: 0;
+    }
+  }
+
+  &-title {
+    display: block;
+    margin-bottom: 10px;
+    padding: 0 14px 0 24px;
+
+    font-size: 11px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+
+    color: $sidebar-text-color;
+    overflow: hidden;
+    white-space: nowrap;
+
+    transition: color $transitions-duration;
+
+    @include for-mobile {
+      margin-bottom: 0;
+      padding: 12px 18px 12px 30px;
+
+      html.touchevents & {
+        padding-left: 20px;
+      }
+    }
+
+    &-link {
+      &, &:visited, &:hover {
+        font-weight: bold;
+
+        color: $sidebar-text-color;
+
+        transition: color $transitions-duration;
+      }
+
+      &:hover {
+        color: $sidebar-hover-title-action-item-color;
+      }
+    }
+  }
+
+  &-link {
+    &, &:visited, &:hover {
+      position: relative;
+
+      display: block;
+      padding: 12px 12px 12px 24px;
+
+      color: $sidebar-link-color;
+      vertical-align: middle;
+
+      transition: color $transitions-duration, background-color $transitions-duration;
+    }
+
+    @include for-mobile {
+      padding: 12px 18px 12px 30px;
+
+      html.touchevents & {
+        padding-left: 20px;
+      }
+    }
+
+    &.icon {
+      @include Font_Uppercase;
+
+      font-size: 11px;
+    }
+
+    &:hover, &.selected {
+      background-color: $sidebar-hover-background-color;
+      color: $sidebar-hover-link-color;
+    }
+
+    &-icon {
+      margin-right: 6px;
+
+      font-size: 18px;
+      vertical-align: middle;
+
+      color: $sidebar-icon-color;
+
+      transition: color $transitions-duration;
+    }
+
+    &-label {
+      display: block;
+
+      text-overflow: ellipsis;
+
+      overflow: hidden;
+      white-space: nowrap;
+      vertical-align: middle;
+
+      transition: transform $transitions-duration;
+
+      html.touchevents .editing & {
+        transform: translate3d(20px, 0, 0);
+      }
+    }
+  }
+
+  &-center-link {
+    &, &:visited, &:hover {
+      display: block;
+      padding: 8px 0;
+
+      font-size: 11px;
+      text-align: center;
+      text-transform: uppercase;
+
+      color: $sidebar-action-color;
+
+      transition: color $transitions-duration, background-color $transitions-duration;
+
+      @include for-mobile {
+        padding: 12px 20px;
+      }
+    }
+
+    &:hover {
+      background-color: $sidebar-hover-background-color;
+      color: $sidebar-hover-action-color;
+    }
+  }
+
+  &-left {
+    position: absolute;
+    left: 4px;
+
+    html.touchevents & {
+      top: 0;
+      bottom: 0;
+
+      transition: opacity $transitions-duration, transform $transitions-duration;
+    }
+
+    &.collapsible {
+      display: none;
+
+      html.touchevents & {
+        display: inline-block;
+        width: 0;
+
+        opacity: 0;
+        overflow: hidden;
+
+        transform: scale(0);
+      }
+    }
+
+    &-pin, &-unpin {
+      position: absolute;
+      top: 1px;
+
+      display: none;
+
+      font-size: 14px;
+
+      color: $sidebar-action-color;
+
+      transition: color $transitions-duration;
+
+      html.touchevents & {
+        position: static;
+
+        margin-top: 2px;
+        padding: 6px;
+
+        font-size: 18px;
+
+        @include for-mobile {
+          margin-top: 6px;
+        }
+      }
+
+      &:hover {
+        color: $sidebar-hover-action-color;
+      }
+    }
+
+    .apps-list-pinned &-pin {
+      display: none;
+    }
+
+    .apps-list &-unpin {
+      display: none;
+    }
+  }
+
+  html.no-touchevents &-link:hover &-left.collapsible {
+    display: inline-block;
+  }
+
+  html.touchevents .editing &-left.collapsible {
+    width: auto;
+
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+  &-right {
+    float: right;
+    margin-left: 10px;
+
+    &.collapsible {
+      display: none;
+
+      html.touchevents & {
+        display: inline;
+      }
+    }
+
+    &-edit {
+      display: none;
+
+      font-size: 18px;
+
+      html.touchevents & {
+        display: inline;
+      }
+    }
+
+    &-plus {
+      font-size: 14px;
+      outline: 0;
+    }
+
+    &-arrow {
+      font-size: 16px;
+      font-weight: bold !important;
+
+      color: $sidebar-arrow-color;
+
+      transition: color $transitions-duration, opacity $transitions-duration;
+
+      html.touchevents .editing & {
+        opacity: 0;
+      }
+    }
+
+    &-remove {
+      position: relative;
+
+      color: $sidebar-action-color;
+
+      transition: color $transitions-duration;
+
+      &:hover {
+        color: $sidebar-hover-action-color;
+      }
+    }
+  }
+
+  &-link:hover &-right.collapsible {
+    display: inline-block;
+  }
+
+  &-link:hover &-right-arrow {
+    color: $sidebar-hover-arrow-color;
+  }
+
+  .clone {
+    display: none;
+  }
+
+  .apps-hide {
+    &-label {
+      display: none;
+    }
+
+    &.apps-visible .apps-hide-label.apps-visible {
+      display: inline;
+    }
+
+    &.apps-hidden .apps-hide-label.apps-hidden {
+      display: inline;
+    }
+  }
+
+  &-copyright {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 32px;
+
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 32px;
+    text-align: center;
+
+    background-color: $sidebar-contrast-background-color;
+    color: $sidebar-contrast-text-color;
+
+    transition: background-color $transitions-duration, color $transitions-duration;
+
+    @include for-mobile {
+      display: none;
+    }
+  }
+
+  &-popup {
+    position: absolute;
+    left: 0;
+
+    width: $sidebar-width;
+
+    color: $sidebar-popup-text-color;
+
+    @include for-mobile {
+      width: 360px;
+
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @include for-phone {
+      width: 80%;
+
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+
+    &-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: $sidebar-width;
+      z-index: 5;
+
+      display: none;
+
+      @include for-mobile {
+        left: 0;
+      }
+    }
+
+    &-section {
+      position: absolute;
+      right: 0;
+      left: 0;
+
+      display: none;
+
+      background-color: #ecf2f6;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      box-shadow: rgba(0, 0, 0, 0.15) 4px 16px 16px;
+      overflow: hidden;
+    }
+
+    &-title {
+      display: none;
+      padding: 20px;
+
+      font-size: 12px;
+      font-weight: bold;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+
+      overflow: hidden;
+      white-space: nowrap;
+
+      @include for-mobile {
+        margin-bottom: 0;
+        padding: 24px 0 24px 20px;
+
+        font-size: 14px;
+      }
+    }
+
+    &-search {
+      display: none;
+
+      width: 100%;
+      height: 32px;
+      margin: 0 0 12px;
+      padding: 0;
+
+      font-size: 13px;
+      text-indent: 20px;
+
+      background-color: $sidebar-popup-search-input-background-color;
+      border: 0;
+      border-radius: 0;
+      color: $sidebar-popup-search-input-text-color;
+      outline: 0;
+
+      &::placeholder {
+        color: $sidebar-popup-search-input-placeholder-color;
+      }
+
+      @include for-mobile {
+        height: 40px;
+
+        font-size: 14px;
+      }
+    }
+
+    &-list {
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+
+      background-color: $sidebar-popup-background-color;
+
+      &-item {
+        display: block;
+
+        a, a:visited, a:hover {
+          display: block;
+          padding: 12px 20px;
+
+          text-overflow: ellipsis;
+
+          color: $sidebar-popup-link-text-color;
+          overflow: hidden;
+          white-space: nowrap;
+
+          @include for-mobile {
+            padding: 12px 20px;
+          }
+        }
+
+        a:hover {
+          background-color: $Color_Emerald;
+          color: #fff;
+          cursor: pointer;
+        }
+
+        &.selected a {
+          background-color: $sidebar-popup-hover-link-background-color;
+          color: $sidebar-popup-hover-link-color;
+        }
+
+        &:first-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-container-toggle {
+    display: inline-block;
+    float: left;
+    padding: 10px 0 10px 20px;
+
+    line-height: 31px;
+
+    cursor: pointer;
+    vertical-align: middle;
+
+    &:hover {
+      color: $hover-link-color;
+    }
+
+    body.login &, body.menu-pinned & {
+      display: none;
+    }
+
+    @include for-mobile {
+      display: none;
+    }
+  }
+}
+/* stylelint-enable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type */
