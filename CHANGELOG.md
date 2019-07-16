@@ -1,0 +1,9 @@
+# Changelog
+
+##### 0.0.2 - 2019-07-16
+* Add some doc strings to functions
+* Update README.md
+* Bring in sortables.js from the CMS to remove dependency on it for CompactInlines
+
+##### 0.0.1 - 2019-07-16
+* Initial commit
