@@ -1,5 +1,6 @@
 # OSM Jet
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://github.com/onespacemedia/osm_jet/blob/master/LICENSE)
+
 This is the [Django][django-project] admin and [Jet][jet-repo] overrides used by the [Onespacemedia][osm-site] team.
 
 ### Requirements
@@ -38,18 +39,18 @@ JET_WIDGET_SELECTOR = False            # Hides the widget selector.
 ### Usage
 `osm_jet` provides wrappers and extensions for some of the default [Django][django-project] and [Jet][jet-repo] classes. These are:
 
-###### Admin wrappers
+#### Admin wrappers
 `osm_jet.admin.JetTabularInline` - A wrapper for the default Django TabularInline class that fixes some Jet issues.
 `osm_jet.admin.JetStackedInline` - A wrapper for the default Django StackedInline class that fixes some Jet issues.
 `osm_jet.admin.JetCompactInline` - A wrapper for the Jet CompactInline that fixes some issues and also adds re-ordering functionality.
 
-###### Fields
+#### Fields
 `osm_jet.fields.JetManyToMany` - Brings back the default Django style of ManyToMany widgets if you're not a fan of Jet's select2 version.
 
-###### Dashboard
+#### Dashboard
 `osm_jet.dashboard.Dashboard` - This should only be used if you're also using the [Onespacemedia CMS][osm-cms]. Adds the sitemap module to the dashboard. For more information on usage, see the [Jet docs](https://jet.readthedocs.io/en/latest/dashboard_custom.html#set-up-custom-dashboard) on creating custom Dashboards.
 
-###### Template overrides
+#### Template overrides
 In addition to the above, `osm_jet` overrides multiple Django and Jet templates to improve their styling and layout. It also provides some utility templates you can use the customise the admin. These are:
 `templates/admin/nav_links.hmtl` - For adding links to the top of your sidebar on all admin pages.
 `templates/admin/sharing_links.html` - For adding buttons to share any object from it's change form.
