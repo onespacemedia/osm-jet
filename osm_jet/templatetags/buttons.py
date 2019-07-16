@@ -1,5 +1,3 @@
-"""Template tags used for processing HTML."""
-
 from django import template
 
 register = template.Library()
@@ -7,9 +5,14 @@ register = template.Library()
 
 @register.inclusion_tag('admin/submit_line.html', takes_context=True)
 def save_buttons(context):
-    """
-    Displays the row of buttons for delete and save.
-    """
+    '''
+        An extension of the default Django save_buttons templatetag.
+
+        We've moved the 'view on site' button to also be inline with the save buttons
+        and have made 'Save and continue editing' the default save option. The other
+        save options are made into a dropdown to avoid a large amount of clutter at the
+        bottom of the page.
+    '''
     opts = context['opts']
     change = context['change']
     is_popup = context['is_popup']
