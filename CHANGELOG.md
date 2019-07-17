@@ -2,6 +2,7 @@
 
 ##### 0.0.4 - 2019-07-17
 * Add missing widget template
+* Adjust a middleware check
 
 ##### 0.0.3 - 2019-07-16
 * Update setup.py
