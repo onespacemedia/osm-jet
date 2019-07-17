@@ -3,7 +3,7 @@ from django.db import models
 from django.forms import SelectMultiple
 
 
-class JetManyToManyWidget(SelectMultiple):
+class DjangoManyToManyWidget(SelectMultiple):
     '''
         The widget for the old-style ManyToMany field.
     '''
@@ -22,7 +22,7 @@ class JetManyToManyWidget(SelectMultiple):
         ]
 
 
-class JetManyToMany(models.ManyToManyField):
+class DjangoManyToMany(models.ManyToManyField):
     '''
         A custom ManyToMany field type to bring back the old Django style
         ManyToMany fields if you're not a fan of the select2 style ManyToMany
@@ -30,5 +30,5 @@ class JetManyToMany(models.ManyToManyField):
     '''
 
     def formfield(self, **kwargs):
-        kwargs['widget'] = JetManyToManyWidget
+        kwargs['widget'] = DjangoManyToManyWidget
         return super().formfield(**kwargs)

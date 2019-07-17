@@ -45,7 +45,7 @@ JET_WIDGET_SELECTOR = False            # Hides the widget selector.
 `osm_jet.admin.JetCompactInline` - A wrapper for the Jet CompactInline that fixes some issues and also adds re-ordering functionality.
 
 #### Fields
-`osm_jet.fields.JetManyToMany` - Brings back the default Django style of ManyToMany widgets if you're not a fan of Jet's select2 version.
+`osm_jet.fields.DjangoManyToMany` - Brings back the default Django style of ManyToMany widgets if you're not a fan of Jet's select2 version.
 
 #### Dashboard
 `osm_jet.dashboard.Dashboard` - This should only be used if you're also using the [Onespacemedia CMS][osm-cms]. Adds the sitemap module to the dashboard. For more information on usage, see the [Jet docs](https://jet.readthedocs.io/en/latest/dashboard_custom.html#set-up-custom-dashboard) on creating custom Dashboards.
