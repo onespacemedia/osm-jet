@@ -1,0 +1,50 @@
+<div class="empty-form" style="display: block;">
+  <div class="wdg-SelectMultiple js-SelectMultiple">
+    <div class="wdg-SelectMultiple_Old js-SelectMultiple_Old">
+      <h2>
+        Avaliable
+      </h2>
+      <input type="text" placeholder="Search" class="wdg-SelectMultiple_Search js-SelectMultiple_SearchOld">
+      <select name="{{ widget.name }}_old"{% include "django/forms/widgets/attrs.html" %}>
+        {% for group_name, group_choices, group_index in widget.optgroups %}
+          {% for option in group_choices %}
+            {% if not option.selected %}
+              {% include option.template_name with widget=option %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </select>
+      <p class="wdg-SelectMultiple_SubText js-SelectMultiple_AddAll">Add all</p>
+    </div>
+
+    <div class="wdg-SelectMultiple_Controls">
+      <div class="wdg-SelectMultiple_Control wdg-SelectMultiple_Control-right js-SelectMultiple_AddSelected">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="m58.676 76.504v-22.078h11.453l-20.188-30.93-20.07 30.93h11.332v22.078z" fill-rule="evenodd"/>
+        </svg>
+      </div>
+      <div class="wdg-SelectMultiple_Control wdg-SelectMultiple_Control-left js-SelectMultiple_RemoveSelected">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="m58.676 76.504v-22.078h11.453l-20.188-30.93-20.07 30.93h11.332v22.078z" fill-rule="evenodd"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="wdg-SelectMultiple_New js-SelectMultiple_New">
+      <h2>
+        Selected
+      </h2>
+      <input type="text" placeholder="Search" class="wdg-SelectMultiple_Search js-SelectMultiple_SearchNew">
+      <select name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+        {% for group_name, group_choices, group_index in widget.optgroups %}
+          {% for option in group_choices %}
+            {% if option.selected %}
+              {% include option.template_name with widget=option %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </select>
+      <p class="wdg-SelectMultiple_SubText js-SelectMultiple_RemoveAll">Remove all</p>
+    </div>
+  </div>
+</div>
