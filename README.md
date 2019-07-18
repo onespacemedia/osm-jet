@@ -48,12 +48,12 @@ JET_WIDGET_SELECTOR = False            # Hides the widget selector.
 `osm_jet.fields.DjangoManyToMany` - Brings back the default Django style of ManyToMany widgets if you're not a fan of Jet's select2 version.
 
 #### Dashboard
-`osm_jet.dashboard.Dashboard` - This should only be used if you're also using the [Onespacemedia CMS][osm-cms]. Adds the sitemap module to the dashboard. For more information on usage, see the [Jet docs](https://jet.readthedocs.io/en/latest/dashboard_custom.html#set-up-custom-dashboard) on creating custom Dashboards.
+`osm_jet.dashboard.Dashboard` - This should only be used if you're also using the [Onespacemedia CMS][osm-cms]. This adds the sitemap module to the dashboard. For more information on usage, see the [Jet docs](https://jet.readthedocs.io/en/latest/dashboard_custom.html#set-up-custom-dashboard) on creating custom Dashboards.
 
 #### Template overrides
 In addition to the above, `osm_jet` overrides multiple Django and Jet templates to improve their styling and layout. It also provides some utility templates you can use the customise the admin. These are:
 `templates/admin/nav_links.hmtl` - For adding links to the top of your sidebar on all admin pages.
-`templates/admin/sharing_links.html` - For adding buttons to share any object from it's change form.
+`templates/admin/sharing_links.html` - For adding buttons to share any object from its change form.
 
 
 [django-project]: <https://www.djangoproject.com/>
