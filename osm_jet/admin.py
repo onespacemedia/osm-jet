@@ -53,6 +53,7 @@ class JetStackedInline(admin.StackedInline):
             ],
         }
 
+
 class JetCompactInline(CompactInline):
     '''
         An override of the default Jet CompactInline with some extra styles
