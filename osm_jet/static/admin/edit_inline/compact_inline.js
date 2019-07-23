@@ -57,7 +57,7 @@ function initDraggables () {
   /* eslint-disable no-undef */
   Sortable.create(document.querySelector('.inline-navigation-items'), {
     /* eslint-enable no-undef */
-    handle: '.drag-handle',
+    // handle: '.drag-handle',
     animation: 100,
     onStart: function (evt, originalEvent) {
       document.querySelector('.inline-navigation-content').classList.add('dragging')
