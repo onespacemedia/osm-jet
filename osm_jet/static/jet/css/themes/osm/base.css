@@ -5192,6 +5192,7 @@ body.menu-pinned #branding-pin {
   display: inline-block;
   width: 175px;
   z-index: 4;
+  background-color: #fff;
 }
 
 @media only screen and (max-width: 960px) {
@@ -5273,8 +5274,9 @@ body.menu-pinned #branding-pin {
   content: "";
   font-weight: normal;
   float: right;
-  color: #47bac1;
-  font-size: 24px;
+  color: #757575;
+  font-size: 20px;
+  line-height: 32px;
   vertical-align: middle;
   line-height: 30px;
   -webkit-transition: color 0.3s;
@@ -7220,7 +7222,7 @@ body.change-list .object-tools li {
 }
 
 .sharing-links h3 {
-  margin: 0;
+  margin: 0 6px 0 0;
 }
 
 .sharing-links input {
