@@ -58,7 +58,9 @@ def generate_sitemap(request):
                 'extra_languages': []
             }
 
-            if not 'cms.middleware.LocalisationMiddleware' in getattr(settings, 'MIDDLEWARE', settings.MIDDLEWARE_CLASSES):
+            middleware = settings.MIDDLEWARE or settings.MIDDLEWARE_CLASSES
+
+            if not 'cms.middleware.LocalisationMiddleware' in middleware:
                 return outcome_dict
 
             # Get all of the language pages
