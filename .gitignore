@@ -3,3 +3,7 @@
 
 # VSCode
 .vscode/
+
+# PyPy
+MANIFEST
+dist/
