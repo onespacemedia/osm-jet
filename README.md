@@ -52,9 +52,9 @@ JET_WIDGET_SELECTOR = False            # Hides the widget selector.
 
 #### Template overrides
 In addition to the above, `osm_jet` overrides multiple Django and Jet templates to improve their styling and layout. It also provides some utility templates you can use the customise the admin. These are:
-`templates/admin/nav_links.hmtl` - For adding links to the top of your sidebar on all admin pages.
-`templates/admin/sharing_links.html` - For adding buttons to share any object from its change form.
 
+* `templates/admin/nav_links.html` - For adding links to the top of your sidebar on all admin pages.
+* `templates/admin/sharing_links.html` - For adding buttons to share any object from its change form.
 
 [django-project]: <https://www.djangoproject.com/>
 [jet-repo]: <https://github.com/geex-arts/django-jet>
