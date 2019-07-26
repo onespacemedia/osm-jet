@@ -40,15 +40,16 @@ JET_WIDGET_SELECTOR = False            # Hides the widget selector.
 `osm_jet` provides wrappers and extensions for some of the default [Django][django-project] and [Jet][jet-repo] classes. These are:
 
 #### Admin wrappers
-`osm_jet.admin.JetTabularInline` - A wrapper for the default Django TabularInline class that fixes some Jet issues.
-`osm_jet.admin.JetStackedInline` - A wrapper for the default Django StackedInline class that fixes some Jet issues.
-`osm_jet.admin.JetCompactInline` - A wrapper for the Jet CompactInline that fixes some issues and also adds re-ordering functionality.
+* `osm_jet.admin.JetTabularInline` - A wrapper for the default Django TabularInline class that fixes some Jet issues.
+* `osm_jet.admin.JetStackedInline` - A wrapper for the default Django StackedInline class that fixes some Jet issues.
+* `osm_jet.admin.JetCompactInline` - A wrapper for the Jet CompactInline that fixes some issues and also adds re-ordering functionality.
 
 #### Fields
-`osm_jet.fields.DjangoManyToMany` - Brings back the default Django style of ManyToMany widgets if you're not a fan of Jet's select2 version.
+* `osm_jet.fields.DjangoManyToMany` - Brings back the default Django style of ManyToMany widgets if you're not a fan of Jet's select2 version.
+* Fixes and style overrides for Jazzband's [sortedM2M][sortedm2m]
 
 #### Dashboard
-`osm_jet.dashboard.Dashboard` - This should only be used if you're also using the [Onespacemedia CMS][osm-cms]. This adds the sitemap module to the dashboard. For more information on usage, see the [Jet docs](https://jet.readthedocs.io/en/latest/dashboard_custom.html#set-up-custom-dashboard) on creating custom Dashboards.
+* `osm_jet.dashboard.Dashboard` - This should only be used if you're also using the [Onespacemedia CMS][osm-cms]. This adds the sitemap module to the dashboard. For more information on usage, see the [Jet docs](https://jet.readthedocs.io/en/latest/dashboard_custom.html#set-up-custom-dashboard) on creating custom Dashboards.
 
 #### Template overrides
 In addition to the above, `osm_jet` overrides multiple Django and Jet templates to improve their styling and layout. It also provides some utility templates you can use the customise the admin. These are:
@@ -60,3 +61,4 @@ In addition to the above, `osm_jet` overrides multiple Django and Jet templates 
 [jet-repo]: <https://github.com/geex-arts/django-jet>
 [osm-site]: <https://onespacemedia.com>
 [osm-cms]: <https://github.com/onespacemedia/cms>
+[sortedm2m]: <https://github.com/jazzband/django-sortedm2m>
