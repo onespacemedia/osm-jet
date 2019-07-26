@@ -16,7 +16,7 @@ setup(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Framework :: Django :: 1.11',
-        'License :: OSI Approved :: GNU Affero General Public License v3.0',
+        'License :: OSI Approved :: GNU Affero General Public License v3',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
