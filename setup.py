@@ -1,8 +1,6 @@
 from distutils.core import setup
 from setuptools import find_packages
 
-print(find_packages())
-
 setup(
     name='osm-jet',
     version='1.0.1',
