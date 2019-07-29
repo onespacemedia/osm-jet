@@ -3,13 +3,14 @@ from setuptools import find_packages
 
 setup(
     name='osm-jet',
-    version='1.0.2',
+    version='1.0.3',
     license='agpl-3.0',
     description='A CMS skin for Django. An extension of django-jet with some fixes and additional features',
     author='Onespacemedia',
     author_email='developers@onespacemedia.com',
     url='https://github.com/onespacemedia/osm_jet',
     packages=find_packages(),
+    include_package_data=True,
     install_requires=[
         'Django',
         'django-jet',
