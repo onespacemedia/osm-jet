@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include osm_jet/static *
+recursive-include osm_jet/templates *
