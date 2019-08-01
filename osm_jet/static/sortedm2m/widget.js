@@ -51,7 +51,7 @@ if (typeof jQuery === 'undefined') {
     }
 
     function iterateUl () {
-      $('.inline-related:not(.empty-form) .sortedm2m-items').each(function () {
+      $(':not(.empty-form) .sortedm2m-items').each(function () {
         var ul = $(this);
         if ($.trim(ul.html())) {
           prepareUl(ul);
