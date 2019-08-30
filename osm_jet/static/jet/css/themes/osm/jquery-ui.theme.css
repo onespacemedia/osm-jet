@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Customizable variables
  * Update these variable to create theme
@@ -724,6 +725,15 @@
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
   color: #fff;
+  cursor: pointer;
+}
+
+.ui-icon-circle-triangle-e:before {
+  content: "";
+}
+
+.ui-icon-circle-triangle-w:before {
+  content: "";
 }
 
 .ui-datepicker-title {

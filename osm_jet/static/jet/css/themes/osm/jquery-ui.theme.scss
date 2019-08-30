@@ -50,6 +50,15 @@
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
     color: #fff;
+    cursor: pointer;
+}
+
+.ui-icon-circle-triangle-e:before {
+    content: $icon-arrow-right;
+}
+
+.ui-icon-circle-triangle-w:before {
+    content: $icon-arrow-left;
 }
 
 .ui-datepicker-title {
