@@ -1,6 +1,10 @@
 .sortedm2m-container {
   width: 570px;
   margin-right: 10px;
+
+  @media (max-width: 960px) {
+    width: auto;
+  }
 }
 
 .sortedm2m-container * {
