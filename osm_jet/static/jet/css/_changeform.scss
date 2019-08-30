@@ -605,11 +605,12 @@ body.popup .submit-row {
     }
 
     span.delete, .inline-deletelink {
-      display: inline-block;
+      align-items: center;
+
+      display: flex;
       float: right;
 
       color: $danger-button-background-color;
-      vertical-align: middle;
       white-space: nowrap;
 
       @include for-mobile {
