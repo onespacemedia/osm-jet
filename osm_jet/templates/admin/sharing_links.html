@@ -1,45 +1,58 @@
 
 {% if has_absolute_url %}
-<div class="sharing-links">
-  <h3>Share this on:</h3>
-  <input type="submit" value="Facebook" name="https://www.facebook.com/sharer.php?u={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}">
+  <div class="sharing-links">
+    <h3>Sharing links:</h3>
+    <input style="display: none;" type="text" value="http{% if request.is_secure %}s{% endif %}://{{ settings.SITE_DOMAIN }}{{ original.get_absolute_url|urlencode }}" id="sharingLinkCopyText">
+    <input class="copy-link" type="submit" value="Copy link">
 
-  <input type="submit" value="Twitter" name="https://twitter.com/share?url={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}&amp;text={{ original.title|urlencode }}">
+    <input class="external-link" type="submit" value="Facebook" name="https://www.facebook.com/sharer.php?u={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}">
+    <input class="external-link" type="submit" value="Twitter" name="https://twitter.com/share?url={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}&amp;text={{ original.title|urlencode }}">
+    <input class="external-link" type="submit" value="LinkedIn" name="https://www.linkedin.com/shareArticle?url={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}&amp;title={{ original.title|urlencode }} ">
+  </div>
+  <script>
+    jQuery('.sharing-links .external-link').each(function() {
+      var $ = jQuery;
+      $(this).click(function(e) {
+        e.preventDefault();
+        var url = $(this).attr('name');
+        window.open(url, '_blank', 'height=400,width=600,menubar=no,status=no,toolbar=no');
+      })
+    });
 
-  <input type="submit" value="LinkedIn" name="https://www.linkedin.com/shareArticle?url={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}&amp;title={{ original.title|urlencode }} ">
-</div>
-<script>
-jQuery('.sharing-links input').each(function() {
-  var $ = jQuery;
-  $(this).click(function(ev) {
-    ev.preventDefault();
-    var url = $(this).attr('name');
-    window.open(url, '_blank', 'height=400,width=600,menubar=no,status=no,toolbar=no');
-  })
-});
-</script>
-<style>
-  .admin-tools {
-    align-items: flex-start;
-    justify-content: space-between;
+    var copyButton = document.querySelector('.copy-link')
+    copyButton.addEventListener('click', function (e) {
+      e.preventDefault()
 
-    display: flex;
-  }
+      var copyText = document.getElementById('sharingLinkCopyText')
 
-  .sharing-links {
-    align-items: center;
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
 
-    display: flex;
-  }
+      document.execCommand('copy');
+    })
+  </script>
+  <style>
+    .admin-tools {
+      align-items: flex-start;
+      justify-content: space-between;
 
-  .sharing-links h3 {
-    margin: 0 6px 0 0;
-  }
+      display: flex;
+    }
 
-  .sharing-links input {
-    margin: 0 4px;
+    .sharing-links {
+      align-items: center;
 
-    cursor: pointer;
-  }
-</style>
+      display: flex;
+    }
+
+    .sharing-links h3 {
+      margin: 0 6px 0 0;
+    }
+
+    .sharing-links input {
+      margin: 0 4px;
+
+      cursor: pointer;
+    }
+  </style>
 {% endif %}
