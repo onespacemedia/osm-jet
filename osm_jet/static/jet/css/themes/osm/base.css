@@ -3907,7 +3907,7 @@ table {
   -webkit-box-shadow: 0 2px 0 0 transparent;
           box-shadow: 0 2px 0 0 transparent;
   margin-bottom: 2px;
-  color: #757575;
+  color: #000;
 }
 
 table.helper {
@@ -8323,8 +8323,8 @@ form .related-widget-wrapper ul {
 
 /* TABS */
 .changeform-tabs {
-  margin: 0;
-  padding: 0 15px;
+  margin: 0 -5px;
+  padding: 10px 15px;
   background-color: #161616;
   border-bottom: 2px solid #f7f7f7;
   border-top-left-radius: 4px;
@@ -8340,17 +8340,15 @@ form .related-widget-wrapper ul {
 .changeform-tabs-item {
   position: relative;
   display: inline-block;
-  margin: 10px 5px;
+  margin: 0 5px;
   padding: 0;
   line-height: normal;
 }
 
-.changeform-tabs-item:first-of-type {
-  margin-left: 0;
-}
-
-.changeform-tabs-item:last-of-type {
-  margin-right: 0;
+@media only screen and (max-width: 960px) {
+  .changeform-tabs-item {
+    margin: 10px 5px;
+  }
 }
 
 .changeform-tabs-item a {
@@ -13748,15 +13746,6 @@ img[src$='admin/img/icon-yes.gif'] + span, img[src$='admin/img/icon-yes.svg'] + 
 img[src$='admin/img/icon-no.gif'] + span, img[src$='admin/img/icon-no.svg'] + span,
 img[src$='admin/img/icon-unknown.gif'] + span, img[src$='admin/img/icon-unknown.svg'] + span {
   font-weight: bold;
-  color: #fff;
-}
-
-img[src$='admin/img/icon-yes.gif'] + span, img[src$='admin/img/icon-yes.svg'] + span {
-  color: #fff;
-}
-
-img[src$='admin/img/icon-no.gif'] + span, img[src$='admin/img/icon-no.svg'] + span {
-  color: #fff;
 }
 
 /* LOADING INDOCATOR */
