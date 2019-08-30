@@ -1108,8 +1108,8 @@ form .related-widget-wrapper ul {
 /* TABS */
 
 .changeform-tabs {
-  margin: 0;
-  padding: 0 15px;
+  margin: 0 -5px;
+  padding: 10px 15px;
 
   background-color: $content-nav-background-color;
   border-bottom: 2px solid $background-color;
@@ -1124,17 +1124,13 @@ form .related-widget-wrapper ul {
     position: relative;
 
     display: inline-block;
-    margin: 10px 5px;
+    margin: 0 5px;
     padding: 0;
 
     line-height: normal;
 
-    &:first-of-type {
-      margin-left: 0;
-    }
-
-    &:last-of-type {
-      margin-right: 0;
+    @include for-mobile {
+      margin: 10px 5px;
     }
 
     a {
