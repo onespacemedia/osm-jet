@@ -184,7 +184,7 @@
 
   &-title {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     padding: 0 14px 0 24px;
 
     font-size: 11px;
@@ -199,7 +199,7 @@
     transition: color $transitions-duration;
 
     @include for-mobile {
-      margin-bottom: 0;
+      margin-bottom: 10px;
       padding: 12px 18px 12px 30px;
 
       html.touchevents & {
@@ -398,10 +398,6 @@
       display: none;
 
       font-size: 18px;
-
-      html.touchevents & {
-        display: inline;
-      }
     }
 
     &-plus {
@@ -448,6 +444,8 @@
   }
 
   .apps-hide {
+    display: none;
+
     &-label {
       display: none;
     }

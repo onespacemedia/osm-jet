@@ -7834,10 +7834,14 @@ body.popup .submit-row {
 }
 
 .inline-related h3 span.delete, .inline-related h3 .inline-deletelink {
-  display: inline-block;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   float: right;
   color: #d0021b;
-  vertical-align: middle;
   white-space: nowrap;
 }
 
@@ -10023,7 +10027,7 @@ body.menu-pinned.popup .changelist-footer.fixed {
 
 .sidebar-title {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   padding: 0 14px 0 24px;
   font-size: 11px;
   font-weight: bold;
@@ -10038,7 +10042,7 @@ body.menu-pinned.popup .changelist-footer.fixed {
 
 @media only screen and (max-width: 960px) {
   .sidebar-title {
-    margin-bottom: 0;
+    margin-bottom: 10px;
     padding: 12px 18px 12px 30px;
   }
   html.touchevents .sidebar-title {
@@ -10226,10 +10230,6 @@ html.touchevents .sidebar-right.collapsible {
   font-size: 18px;
 }
 
-html.touchevents .sidebar-right-edit {
-  display: inline;
-}
-
 .sidebar-right-plus {
   font-size: 14px;
   outline: 0;
@@ -10267,6 +10267,10 @@ html.touchevents .editing .sidebar-right-arrow {
 }
 
 .sidebar .clone {
+  display: none;
+}
+
+.sidebar .apps-hide {
   display: none;
 }
 
