@@ -35,4 +35,8 @@ html.no-touchevents .dragging .inline-navigation-item:hover {
 .dragging .drag-handle {
   cursor: grabbing !important;
 }
+
+.form-row.field-order {
+  display: none;
+}
 /* stylelint-enable */
