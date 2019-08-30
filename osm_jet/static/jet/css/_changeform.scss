@@ -670,6 +670,10 @@ body.popup .submit-row {
 
 .compact.inline-related h3 {
   border-left: 1px solid $Color_Border;
+
+  @include for-mobile {
+    border-left: 0;
+  }
 }
 
 .inline-group.compact .inline-related h3 {
@@ -783,6 +787,8 @@ body.popup .submit-row {
 
       max-height: 200px;
       padding-bottom: 10px;
+
+      border-right: 0;
     }
   }
 

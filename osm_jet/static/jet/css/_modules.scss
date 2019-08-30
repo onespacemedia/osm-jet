@@ -19,6 +19,10 @@ fieldset.module {
 .compact fieldset.module {
   border-bottom: 1px solid $Color_Border;
   border-left: 1px solid $Color_Border;
+
+  @include for-mobile {
+    border-left: 0;
+  }
 }
 
 .module {

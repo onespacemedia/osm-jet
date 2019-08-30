@@ -6263,6 +6263,12 @@ fieldset.module {
   border-left: 1px solid #cbcbcb;
 }
 
+@media only screen and (max-width: 960px) {
+  .compact fieldset.module {
+    border-left: 0;
+  }
+}
+
 .module p, .module ul, .module h3, .module h4, .module dl, .module pre {
   padding-left: 10px;
   padding-right: 10px;
@@ -7889,6 +7895,12 @@ body.popup .submit-row {
   border-left: 1px solid #cbcbcb;
 }
 
+@media only screen and (max-width: 960px) {
+  .compact.inline-related h3 {
+    border-left: 0;
+  }
+}
+
 .inline-group.compact .inline-related h3 {
   background: transparent;
 }
@@ -7997,6 +8009,7 @@ body.popup .submit-row {
     left: auto;
     max-height: 200px;
     padding-bottom: 10px;
+    border-right: 0;
   }
 }
 
