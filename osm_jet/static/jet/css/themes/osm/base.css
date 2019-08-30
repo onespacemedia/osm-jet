@@ -6242,11 +6242,8 @@ div.breadcrumbs a:focus, div.breadcrumbs a:hover {
 /* MODULES */
 fieldset.module {
   background-color: #fff;
-  border-radius: 4px;
   padding: 14px;
   border: 0;
-  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (max-width: 960px) {
@@ -6259,6 +6256,11 @@ fieldset.module {
   fieldset.module {
     padding: 5px;
   }
+}
+
+.compact fieldset.module {
+  border-bottom: 1px solid #cbcbcb;
+  border-left: 1px solid #cbcbcb;
 }
 
 .module p, .module ul, .module h3, .module h4, .module dl, .module pre {
@@ -7883,6 +7885,10 @@ body.popup .submit-row {
   background: transparent;
 }
 
+.compact.inline-related h3 {
+  border-left: 1px solid #cbcbcb;
+}
+
 .inline-group.compact .inline-related h3 {
   background: transparent;
 }
@@ -7922,7 +7928,6 @@ body.popup .submit-row {
   z-index: 1;
   height: 40px;
   background: #fff;
-  border-right: 1px solid #cbcbcb;
   pointer-events: none;
 }
 
@@ -7974,10 +7979,11 @@ body.popup .submit-row {
 .inline-navigation-content {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1px;
   bottom: 0;
   left: 0;
   padding: 40px 0 30px;
+  border-right: 1px solid #cbcbcb;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -8323,7 +8329,7 @@ form .related-widget-wrapper ul {
 
 /* TABS */
 .changeform-tabs {
-  margin: 0 -5px;
+  margin: 0;
   padding: 10px 15px;
   background-color: #161616;
   border-bottom: 2px solid #f7f7f7;

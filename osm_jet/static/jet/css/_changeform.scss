@@ -668,6 +668,10 @@ body.popup .submit-row {
   }
 }
 
+.compact.inline-related h3 {
+  border-left: 1px solid $Color_Border;
+}
+
 .inline-group.compact .inline-related h3 {
   background: transparent;
 }
@@ -709,7 +713,6 @@ body.popup .submit-row {
     height: 40px;
 
     background: #fff;
-    border-right: 1px solid $Color_Border;
 
     pointer-events: none;
   }
@@ -761,12 +764,13 @@ body.popup .submit-row {
   &-content {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -1px;
     bottom: 0;
     left: 0;
 
     padding: 40px 0 30px;
 
+    border-right: 1px solid $Color_Border;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
@@ -1108,7 +1112,7 @@ form .related-widget-wrapper ul {
 /* TABS */
 
 .changeform-tabs {
-  margin: 0 -5px;
+  margin: 0;
   padding: 10px 15px;
 
   background-color: $content-nav-background-color;

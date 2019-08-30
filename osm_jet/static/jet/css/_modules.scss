@@ -4,10 +4,8 @@
 
 fieldset.module {
   background-color: $content-background-color;
-  border-radius: $button-border-radius;
   padding: 14px;
   border: 0;
-  box-shadow: $box-shadow;
 
   @include for-mobile {
     padding: 10px;
@@ -16,6 +14,11 @@ fieldset.module {
   @include for-phone {
     padding: 5px;
   }
+}
+
+.compact fieldset.module {
+  border-bottom: 1px solid $Color_Border;
+  border-left: 1px solid $Color_Border;
 }
 
 .module {
