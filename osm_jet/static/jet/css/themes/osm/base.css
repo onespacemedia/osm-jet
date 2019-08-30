@@ -5183,15 +5183,15 @@ body.menu-pinned #branding-pin {
   position: absolute;
   top: 11px;
   right: 20px;
-  border: 1px solid #cbcbcb;
-  border-radius: 4px;
-  font-size: 12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  z-index: 4;
   display: inline-block;
   width: 175px;
-  z-index: 4;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  list-style: none;
+  border: 1px solid #cbcbcb;
+  border-radius: 4px;
   background-color: #fff;
 }
 
@@ -5200,12 +5200,12 @@ body.menu-pinned #branding-pin {
     position: fixed;
     top: 0;
     right: 0;
-    width: auto;
-    max-width: 200px;
-    color: #fff;
+    z-index: 7;
+    background-color: #161616;
     border: 0;
     border-left: 1px solid #161616;
     border-radius: 0;
+    color: #fff;
     -webkit-transform: none;
             transform: none;
     -webkit-transition: -webkit-transform 0.3s;
