@@ -36,7 +36,7 @@ html.no-touchevents .dragging .inline-navigation-item:hover {
   cursor: grabbing !important;
 }
 
-.form-row.field-order {
+.inline-related.compact .form-row.field-order {
   display: none;
 }
 /* stylelint-enable */
