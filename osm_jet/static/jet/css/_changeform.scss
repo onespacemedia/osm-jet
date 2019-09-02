@@ -1,31 +1,6 @@
 /* stylelint-disable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type,order/order */
 @import "globals";
 
-/* OBJECT TOOLS */
-.admin-tools {
-  align-items: flex-start;
-  justify-content: space-between;
-
-  display: flex;
-}
-
-.sharing-links {
-  align-items: center;
-
-  display: flex;
-
-  h3 {
-    margin: 0 6px 0 0;
-  }
-
-  input {
-    margin: 0 4px;
-
-    box-shadow: $box-shadow;
-    cursor: pointer;
-  }
-}
-
 /* FORM ROWS */
 .form-row {
   padding: 15px 10px;
