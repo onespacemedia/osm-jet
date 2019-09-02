@@ -9979,12 +9979,16 @@ body.menu-pinned.popup .changelist-footer.fixed {
 }
 
 .sidebar-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
   display: none;
   float: right;
   margin: 12px 18px 0 12px;
   padding: 4px;
-  background-color: #e3ecf2;
   border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 @media only screen and (max-width: 960px) {
@@ -9997,7 +10001,7 @@ body.menu-pinned.popup .changelist-footer.fixed {
   font-size: 28px;
   font-weight: bold;
   vertical-align: middle;
-  color: #7f8fa4;
+  color: #fff;
 }
 
 .sidebar-wrapper {
@@ -10317,7 +10321,10 @@ html.touchevents .editing .sidebar-right-arrow {
 
 @media only screen and (max-width: 960px) {
   .sidebar-popup {
+    position: relative;
     width: 360px;
+    height: 100%;
+    background-color: #000;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
@@ -10360,6 +10367,16 @@ html.touchevents .editing .sidebar-right-arrow {
   overflow: hidden;
 }
 
+@media only screen and (max-width: 960px) {
+  .sidebar-popup-section {
+    position: relative;
+    width: 100%;
+    background-color: #000;
+    border-radius: 0;
+    color: #fff;
+  }
+}
+
 .sidebar-popup-title {
   display: none;
   padding: 20px;
@@ -10373,6 +10390,7 @@ html.touchevents .editing .sidebar-right-arrow {
 
 @media only screen and (max-width: 960px) {
   .sidebar-popup-title {
+    display: block;
     margin-bottom: 0;
     padding: 24px 0 24px 20px;
     font-size: 14px;
@@ -10424,6 +10442,12 @@ html.touchevents .editing .sidebar-right-arrow {
   background-color: #fff;
 }
 
+@media only screen and (max-width: 960px) {
+  .sidebar-popup-list {
+    background-color: #000;
+  }
+}
+
 .sidebar-popup-list-item {
   display: block;
 }
@@ -10440,6 +10464,7 @@ html.touchevents .editing .sidebar-right-arrow {
 @media only screen and (max-width: 960px) {
   .sidebar-popup-list-item a, .sidebar-popup-list-item a:visited, .sidebar-popup-list-item a:hover {
     padding: 12px 20px;
+    color: #fff;
   }
 }
 
