@@ -9,10 +9,19 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
+.ath-Body {
+  height: 100%;
+  padding: 0;
+}
+
 .ath-Container {
   display: flex;
 
-  height: 100vh;
+  height: 100%;
 
   background-color: #e9e5e5;
 }
@@ -96,7 +105,7 @@
 }
 
 .ath-Above {
-  margin: 28px 0 56px;
+  margin: 0 0 32px;
 }
 
 .ath-Form_Content {
@@ -126,7 +135,7 @@
 .ath-Below {
   display: flex;
   width: 100%;
-  margin: 24px 0 28px;
+  margin-top: 24px;
 }
 
 .ath-Link {
@@ -148,6 +157,7 @@
 
 .ath-Link_Password {
   margin-left: auto;
+  text-align: right;
 }
 
 .ath-Form_QRContainer {
@@ -171,6 +181,10 @@
 
 /* sm breakpoint */
 @media (min-width: 768px) {
+  .ath-Above {
+    margin: 28px 0 56px;
+  }
+
   .ath-Message_Button {
     min-width: 265px;
     width: auto;
@@ -188,6 +202,12 @@
   .frm-Actions {
     font-size: 18px;
     line-height: 22px;
+  }
+
+  .ath-Below {
+    display: flex;
+    width: 100%;
+    margin: 24px 0 28px;
   }
 }
 
