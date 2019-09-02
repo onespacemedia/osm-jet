@@ -237,13 +237,13 @@
       vertical-align: middle;
 
       transition: color $transitions-duration, background-color $transitions-duration;
-    }
 
-    @include for-mobile {
-      padding: 12px 18px 12px 30px;
+      @include for-mobile {
+        padding: 12px 18px 12px 30px;
 
-      html.touchevents & {
-        padding-left: 20px;
+        html.touchevents & {
+          padding-left: 20px;
+        }
       }
     }
 
