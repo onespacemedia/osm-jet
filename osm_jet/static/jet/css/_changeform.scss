@@ -1116,7 +1116,7 @@ form .related-widget-wrapper ul {
     line-height: normal;
 
     @include for-mobile {
-      margin: 10px 5px;
+      margin: 5px;
     }
 
     a {
@@ -1151,6 +1151,10 @@ form .related-widget-wrapper ul {
         transform: scaleX(0);
         transition: transform 0.2s;
         transform-origin: left;
+
+        @include for-mobile {
+          display: none;
+        }
       }
 
       @include for-mobile {

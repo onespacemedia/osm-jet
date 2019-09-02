@@ -8384,7 +8384,7 @@ form .related-widget-wrapper ul {
 
 @media only screen and (max-width: 960px) {
   .changeform-tabs-item {
-    margin: 10px 5px;
+    margin: 5px;
   }
 }
 
@@ -8420,6 +8420,12 @@ form .related-widget-wrapper ul {
   transition: transform 0.2s, -webkit-transform 0.2s;
   -webkit-transform-origin: left;
           transform-origin: left;
+}
+
+@media only screen and (max-width: 960px) {
+  .changeform-tabs-item a::before {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 960px) {
