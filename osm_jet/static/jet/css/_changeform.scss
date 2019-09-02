@@ -348,6 +348,8 @@ fieldset.monospace textarea {
     @include for-phone {
       display: block;
       width: 100%;
+
+      font-weight: 700;
     }
 
     &:hover, &:focus {

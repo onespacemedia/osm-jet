@@ -7502,6 +7502,7 @@ fieldset.monospace textarea {
   .submit-row a.deletelink {
     display: block;
     width: 100%;
+    font-weight: 700;
   }
 }
 
@@ -9115,6 +9116,13 @@ body.change-form #content-main > form > div > .module.initialized, body.change-f
   margin-bottom: 5px;
 }
 
+@media only screen and (max-width: 960px) {
+  #toolbar form input[type="submit"], #toolbar form input[type="submit"]:visited, #toolbar form input[type="submit"]:hover {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
 #toolbar form input[type="submit"]:hover, #toolbar form input[type="submit"]:focus {
   background-color: #3caf4a;
   color: #fff;
@@ -9400,6 +9408,8 @@ body.change-form #content-main > form > div > .module.initialized, body.change-f
 @media only screen and (max-width: 480px) {
   #changelist .actions .button, #changelist .actions .button:visited {
     width: 100%;
+    font-size: 14px;
+    font-weight: 500;
   }
 }
 
@@ -10112,10 +10122,10 @@ body.menu-pinned.popup .changelist-footer.fixed {
 }
 
 @media only screen and (max-width: 960px) {
-  .sidebar-link {
+  .sidebar-link, .sidebar-link:visited, .sidebar-link:hover {
     padding: 12px 18px 12px 30px;
   }
-  html.touchevents .sidebar-link {
+  html.touchevents .sidebar-link, html.touchevents .sidebar-link:visited, html.touchevents .sidebar-link:hover {
     padding-left: 20px;
   }
 }

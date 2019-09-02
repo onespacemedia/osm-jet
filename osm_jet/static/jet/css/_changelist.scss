@@ -126,6 +126,11 @@
         padding: 0 20px;
         vertical-align: middle;
         margin-bottom: 5px;
+
+        @include for-mobile {
+          font-size: 14px;
+          font-weight: 500;
+        }
       }
 
       &:hover, &:focus {
@@ -413,6 +418,9 @@
 
         @include for-phone {
           width: 100%;
+
+          font-size: 14px;
+          font-weight: 500;
         }
       }
 
