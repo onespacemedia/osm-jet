@@ -12,7 +12,7 @@ function moveOptionsToSelect (fromSelect, toSelect) {
   var fromOptions = fromSelect.querySelectorAll('option')
   for (var i = 0; i < fromOptions.length; i++) {
     toSelect.appendChild(fromOptions[i])
-    options[i].style.display = ''
+    fromOptions[i].style.display = ''
   }
 }
 
