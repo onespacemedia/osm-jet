@@ -660,7 +660,12 @@ body.popup .submit-row {
     color: $text-color;
 
     @include for-mobile {
-      padding: 10px 20px;
+      position: relative;
+
+      align-items:center;
+
+      display: flex;
+      padding: 10px 90px 10px 20px;
 
       line-height: 2;
 
@@ -689,6 +694,8 @@ body.popup .submit-row {
       vertical-align: middle;
 
       @include for-mobile {
+        padding: 0;
+
         line-height: normal;
       }
 
@@ -714,10 +721,11 @@ body.popup .submit-row {
       white-space: nowrap;
 
       @include for-mobile {
-        float: none;
-        margin-left: 0;
+        position: absolute;
+        top: 10px;
+        right: 20px;
 
-        line-height: normal;
+        margin-left: 0;
       }
 
       label {
