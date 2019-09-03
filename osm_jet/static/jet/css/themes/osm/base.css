@@ -8587,6 +8587,13 @@ body.change-form #content-main > form > div > .module.initialized, body.change-f
   opacity: 1;
 }
 
+@media only screen and (max-width: 960px) {
+  .file-image-preview {
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+
 /* stylelint-enable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type */
 /*
  * Default variable values

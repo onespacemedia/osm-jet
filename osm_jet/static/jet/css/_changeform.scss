@@ -1435,4 +1435,12 @@ body.change-form #content-main > form > div {
 
   opacity: 1;
 }
+
+.file-image-preview {
+  @include for-mobile {
+    display: block;
+
+    margin-bottom: 8px;
+  }
+}
 /* stylelint-enable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type */
