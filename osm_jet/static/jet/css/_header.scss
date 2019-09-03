@@ -107,27 +107,32 @@
     position: absolute;
     top: ($top-height + 10px * 2) / 2 - 30px / 2;
     right: 20px;
-    border: 1px solid $top-border-color;
-    border-radius: $button-border-radius;
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    z-index: 4;
+
     display: inline-block;
     width: 175px;
-    z-index: 4;
+    margin: 0;
+    padding: 0;
+
+    font-size: 12px;
+    list-style: none;
+
+    border: 1px solid $top-border-color;
+    border-radius: $button-border-radius;
     background-color: #fff;
 
     @include for-mobile {
       position: fixed;
       top: 0;
       right: 0;
-      width: auto;
-      max-width: 200px;
-      color: $sidebar-link-color;
+      z-index: 7;
+
+      background-color: $sidebar-background-color;
       border: 0;
       border-left: 1px solid $sidebar-contrast-background-color;
       border-radius: 0;
+      color: $sidebar-text-color;
+
       transform: none;
       transition: transform $transitions-duration;
 

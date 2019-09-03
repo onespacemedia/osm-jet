@@ -1,31 +1,6 @@
 /* stylelint-disable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type,order/order */
 @import "globals";
 
-/* OBJECT TOOLS */
-.admin-tools {
-  align-items: flex-start;
-  justify-content: space-between;
-
-  display: flex;
-}
-
-.sharing-links {
-  align-items: center;
-
-  display: flex;
-
-  h3 {
-    margin: 0 6px 0 0;
-  }
-
-  input {
-    margin: 0 4px;
-
-    box-shadow: $box-shadow;
-    cursor: pointer;
-  }
-}
-
 /* FORM ROWS */
 .form-row {
   padding: 15px 10px;
@@ -306,13 +281,14 @@ fieldset.monospace textarea {
 
   display: flex;
   margin: 20px 0;
+  overflow: visible;
 
   @include for-mobile {
     margin-bottom: 10px;
   }
 
   @include for-phone {
-    padding: 0 10px;
+    flex-direction: column;
   }
 
   input {
@@ -323,6 +299,8 @@ fieldset.monospace textarea {
       padding: 0 20px;
 
       font-size: 14px;
+
+      cursor: pointer;
 
       @include for-phone {
         display: block;
@@ -335,9 +313,7 @@ fieldset.monospace textarea {
       margin: 0 8px 5px 0;
 
       @include for-phone {
-        display: block;
-        width: 100%;
-        margin: 0 0 20px;
+        margin: 0 0 8px;
       }
     }
   }
@@ -361,16 +337,19 @@ fieldset.monospace textarea {
     background-color: $danger-button-background-color;
     border: 0;
     border-radius: $button-border-radius;
+    box-sizing: border-box;
+    box-shadow: $box-shadow;
     color: $danger-button-text-color;
     outline: 0;
     opacity: 1;
-    box-sizing: border-box;
 
     transition: background $transitions-duration, box-shadow $transitions-duration, border $transitions-duration;
 
     @include for-phone {
       display: block;
       width: 100%;
+
+      font-weight: 700;
     }
 
     &:hover, &:focus {
@@ -382,6 +361,127 @@ fieldset.monospace textarea {
       background-color: $button-active-background-color;
       color: $button-active-text-color;
     }
+  }
+
+  a.viewsitelink {
+    @include for-phone {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+
+  &-dropdown {
+    position: relative;
+
+    display: inline-block;
+    margin-right: 8px;
+
+    font-size: 14px;
+    line-height: 32px;
+
+    border-radius: $button-border-radius;
+    box-shadow: $box-shadow;
+
+    @include for-phone {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 8px;
+    }
+
+    span {
+      position: relative;
+
+      justify-content: center;
+
+      display: flex;
+      padding: 0 50px 0 30px;
+
+      background-color: #fff;
+      border-radius: $button-border-radius;
+      user-select: none;
+
+      @include for-phone {
+        padding: 0 50px;
+      }
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        top: 9px;
+        right: 18px;
+
+        width: 8px;
+        height: 8px;
+
+        border: 0 solid currentColor;
+        border-width: 0 1px 1px 0;
+
+        transform: rotate(45deg);
+
+        transition: transform 0.2s, top 0.2s;
+      }
+    }
+
+    &:hover span {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+
+      &::after {
+        top: 14px;
+
+        transform: rotate(-135deg);
+      }
+    }
+
+    ul {
+      position: absolute;
+      top: 32px;
+      right: 0;
+      left: 0;
+
+      flex-direction: column;
+
+      display: none;
+      margin: 0;
+      padding: 0;
+
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    &:hover ul {
+      display: flex;
+    }
+
+    ul li {
+      list-style-type: none;
+
+      &:last-child {
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+
+        input {
+          border-bottom-right-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+      }
+
+      input,
+      input:hover {
+        width: 100%;
+        margin: 0;
+
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      input:hover {
+        background-color: $Color_Emerald;
+        color: #fff;
+      }
+    }
+
   }
 }
 
@@ -560,7 +660,12 @@ body.popup .submit-row {
     color: $text-color;
 
     @include for-mobile {
-      padding: 10px 20px;
+      position: relative;
+
+      align-items:center;
+
+      display: flex;
+      padding: 10px 90px 10px 20px;
 
       line-height: 2;
 
@@ -589,6 +694,8 @@ body.popup .submit-row {
       vertical-align: middle;
 
       @include for-mobile {
+        padding: 0;
+
         line-height: normal;
       }
 
@@ -605,18 +712,20 @@ body.popup .submit-row {
     }
 
     span.delete, .inline-deletelink {
-      display: inline-block;
+      align-items: center;
+
+      display: flex;
       float: right;
 
       color: $danger-button-background-color;
-      vertical-align: middle;
       white-space: nowrap;
 
       @include for-mobile {
-        float: none;
-        margin-left: 0;
+        position: absolute;
+        top: 10px;
+        right: 20px;
 
-        line-height: normal;
+        margin-left: 0;
       }
 
       label {
@@ -668,6 +777,14 @@ body.popup .submit-row {
   }
 }
 
+.compact.inline-related h3 {
+  border-left: 1px solid $Color_Border;
+
+  @include for-mobile {
+    border-left: 0;
+  }
+}
+
 .inline-group.compact .inline-related h3 {
   background: transparent;
 }
@@ -709,7 +826,6 @@ body.popup .submit-row {
     height: 40px;
 
     background: #fff;
-    border-right: 1px solid $Color_Border;
 
     pointer-events: none;
   }
@@ -761,12 +877,13 @@ body.popup .submit-row {
   &-content {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -1px;
     bottom: 0;
     left: 0;
 
     padding: 40px 0 30px;
 
+    border-right: 1px solid $Color_Border;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
@@ -779,6 +896,8 @@ body.popup .submit-row {
 
       max-height: 200px;
       padding-bottom: 10px;
+
+      border-right: 0;
     }
   }
 
@@ -1109,7 +1228,7 @@ form .related-widget-wrapper ul {
 
 .changeform-tabs {
   margin: 0;
-  padding: 0 15px;
+  padding: 10px 15px;
 
   background-color: $content-nav-background-color;
   border-bottom: 2px solid $background-color;
@@ -1124,17 +1243,13 @@ form .related-widget-wrapper ul {
     position: relative;
 
     display: inline-block;
-    margin: 10px 5px;
+    margin: 0 5px;
     padding: 0;
 
     line-height: normal;
 
-    &:first-of-type {
-      margin-left: 0;
-    }
-
-    &:last-of-type {
-      margin-right: 0;
+    @include for-mobile {
+      margin: 5px;
     }
 
     a {
@@ -1169,6 +1284,10 @@ form .related-widget-wrapper ul {
         transform: scaleX(0);
         transition: transform 0.2s;
         transform-origin: left;
+
+        @include for-mobile {
+          display: none;
+        }
       }
 
       @include for-mobile {
@@ -1323,5 +1442,13 @@ body.change-form #content-main > form > div {
   vertical-align: middle;
 
   opacity: 1;
+}
+
+.file-image-preview {
+  @include for-mobile {
+    display: block;
+
+    margin-bottom: 8px;
+  }
 }
 /* stylelint-enable: selector-no-qualifying-type,selector-class-pattern,declaration-no-important,selector-max-id,selector-max-type,selector-no-qualifying-type */

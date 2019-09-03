@@ -95,3 +95,28 @@
 .selectfilter {
   height: unset;
 }
+
+@media (max-width: 660px) {
+  .wdg-SelectMultiple {
+    flex-direction: column;
+  }
+
+  .wdg-SelectMultiple_Controls {
+    flex-direction: row;
+
+    margin: 0;
+  }
+
+  .wdg-SelectMultiple_Control:first-child {
+    margin-bottom: 0;
+    margin-right: 8px;
+  }
+
+  .wdg-SelectMultiple_Control-right {
+    transform: rotate(180deg)
+  }
+
+  .wdg-SelectMultiple_Control-left {
+    transform: none
+  }
+}

@@ -107,7 +107,6 @@
       line-height: $sidebar-header-height;
       text-transform: uppercase;
 
-      border-right: 1px solid $sidebar-contrast-background-color;
       color: $sidebar-link-color;
 
       &-icon {
@@ -136,13 +135,18 @@
   }
 
   &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
     display: none;
     float: right;
     margin: 12px 18px 0 12px;
     padding: 4px;
 
-    background-color: $sidebar-popup-search-input-background-color;
     border-radius: $button-border-radius;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 
     @include for-mobile {
       display: inline-block;
@@ -153,7 +157,7 @@
       font-weight: bold;
       vertical-align: middle;
 
-      color: $sidebar-popup-search-input-text-color;
+      color: #fff;
     }
   }
 
@@ -184,7 +188,7 @@
 
   &-title {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     padding: 0 14px 0 24px;
 
     font-size: 11px;
@@ -199,7 +203,7 @@
     transition: color $transitions-duration;
 
     @include for-mobile {
-      margin-bottom: 0;
+      margin-bottom: 10px;
       padding: 12px 18px 12px 30px;
 
       html.touchevents & {
@@ -233,13 +237,13 @@
       vertical-align: middle;
 
       transition: color $transitions-duration, background-color $transitions-duration;
-    }
 
-    @include for-mobile {
-      padding: 12px 18px 12px 30px;
+      @include for-mobile {
+        padding: 12px 18px 12px 30px;
 
-      html.touchevents & {
-        padding-left: 20px;
+        html.touchevents & {
+          padding-left: 20px;
+        }
       }
     }
 
@@ -398,10 +402,6 @@
       display: none;
 
       font-size: 18px;
-
-      html.touchevents & {
-        display: inline;
-      }
     }
 
     &-plus {
@@ -448,6 +448,8 @@
   }
 
   .apps-hide {
+    display: none;
+
     &-label {
       display: none;
     }
@@ -493,8 +495,12 @@
     color: $sidebar-popup-text-color;
 
     @include for-mobile {
-      width: 360px;
+      position: relative;
 
+      width: 360px;
+      height: 100%;
+
+      background-color: #000;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
@@ -534,6 +540,16 @@
       border-bottom-right-radius: 4px;
       box-shadow: rgba(0, 0, 0, 0.15) 4px 16px 16px;
       overflow: hidden;
+
+      @include for-mobile {
+        position: relative;
+
+        width: 100%;
+
+        background-color: #000;
+        border-radius: 0;
+        color: #fff;
+      }
     }
 
     &-title {
@@ -549,6 +565,7 @@
       white-space: nowrap;
 
       @include for-mobile {
+        display: block;
         margin-bottom: 0;
         padding: 24px 0 24px 20px;
 
@@ -592,6 +609,10 @@
 
       background-color: $sidebar-popup-background-color;
 
+      @include for-mobile {
+        background-color: #000;
+      }
+
       &-item {
         display: block;
 
@@ -607,6 +628,7 @@
 
           @include for-mobile {
             padding: 12px 20px;
+            color: #fff;
           }
         }
 
@@ -614,6 +636,9 @@
           background-color: $Color_Emerald;
           color: #fff;
           cursor: pointer;
+
+          @include for-mobile {
+          }
         }
 
         &.selected a {

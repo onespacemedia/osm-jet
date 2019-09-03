@@ -59,10 +59,12 @@
   padding: 0 !important;
 }
 
-.smp-Content_Actions svg {
+.smp-Content_Offline {
+  margin-right: 20px;
+}
+.smp-Content_Offline svg {
   width: 18px;
   height: 18px;
-  margin-right: 20px;
 }
 
 .smp-Content .sidebar-link-icon {
@@ -102,6 +104,12 @@
   display: flex;
 
   cursor: pointer;
+
+}
+@media only screen and (max-width: 960px) {
+  .smp-Content_Move {
+    display: none;
+  }
 }
 .smp-Content_Move svg:hover {
   fill: #42cf77;
