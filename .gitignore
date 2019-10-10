@@ -7,3 +7,5 @@
 # PyPy
 MANIFEST
 dist/
+
+__pycache__/
