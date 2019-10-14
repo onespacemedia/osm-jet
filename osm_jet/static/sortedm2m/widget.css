@@ -2,7 +2,10 @@
   width: 570px;
   margin-right: 10px;
 
-  @media (max-width: 960px) {
+}
+
+@media (max-width: 960px) {
+  .sortedm2m-container {
     width: auto;
   }
 }
@@ -61,15 +64,18 @@ ul.sortedm2m li {
   border-bottom: 1px solid #cbcbcb;
   background-color: #fff;
 }
+
 ul.sortedm2m li.ui-sortable-helper {
   border-top: 1px solid #cbcbcb;
   opacity: 0.8;
 }
+
 ul.sortedm2m li::before {
   content: '☰';
 
   margin-right: 10px;
 }
+
 ul.sortedm2m li.ui-sortable-placeholder + li {
   border-top: 1px solid #cbcbcb;
 }
@@ -80,6 +86,7 @@ ul.sortedm2m li label {
   font-weight: 500;
   cursor: move;
 }
+
 ul.sortedm2m li label input {
   margin: 0;
   margin-right: 5px;

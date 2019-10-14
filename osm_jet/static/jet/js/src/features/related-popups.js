@@ -262,5 +262,11 @@ RelatedPopups.prototype = {
 };
 
 $(document).ready(function() {
+    const djangoM2M = document.querySelectorAll('.js-DjangoM2MContainer')
+    for (const el of djangoM2M) {
+        const newContainer = el.querySelector('.js-SelectMultiple_New')
+        const link = el.nextElementSibling
+        newContainer.appendChild(link)
+    }
     new RelatedPopups().run();
 });
