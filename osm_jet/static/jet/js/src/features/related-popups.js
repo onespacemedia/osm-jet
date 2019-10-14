@@ -207,26 +207,41 @@ RelatedPopups.prototype = {
                 } else if ($input.is('div.sortedm2m-container')) {
                     const container = $input[0].querySelector('.sortedm2m-items')
                     const items = container.querySelectorAll('.sortedm2m-item')
+                    const hiddenInput = $input[0].querySelector('#id_items')
+                    let value = hiddenInput.getAttribute('value')
+
+                    if (value) {
+                      value = `${response.value},${value}`
+                    } else {
+                      value = response.value
+                    }
+
+                    hiddenInput.setAttribute('value', value)
 
                     const newItem = document.createElement('li')
                     newItem.classList.add('sortedm2m-item')
 
                     const label = document.createElement('label')
+                    const labelText = document.createTextNode(` ${response.obj}`)
                     label.setAttribute('for', `id_items_${items.length}`)
-                    const labelText = document.createTextNode(response.obj)
 
                     const input = document.createElement('input')
                     input.setAttribute('type', 'checkbox')
                     input.setAttribute('value', `${response.value}`)
                     input.setAttribute('id', `id_items_${items.length}`)
+                    input.setAttribute('checked', '')
                     input.classList.add('sortedm2m')
 
-                    container.appendChild(newItem)
+                    let referenceNode = null
+
+                    if (items.length) {
+                      referenceNode = items[0]
+                    }
+
+                    container.insertBefore(newItem, referenceNode)
                     newItem.appendChild(label)
                     label.appendChild(input)
                     label.appendChild(labelText)
-
-                    console.log('sortedm2m')
                 }
 
                 break;
