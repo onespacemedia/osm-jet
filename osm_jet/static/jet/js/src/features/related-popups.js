@@ -31,7 +31,7 @@ RelatedPopups.prototype = {
 
         var self = this;
 
-        $row.find('select').each(function() {
+        $row.find('select, .sortedm2m-container').each(function() {
             var $select = $(this);
 
             self.updateLinks($select);
@@ -204,6 +204,29 @@ RelatedPopups.prototype = {
                     $input.val($input.val() + ',' + response.value);
                 } else if ($input.is('input')) {
                     $input.val(response.value);
+                } else if ($input.is('div.sortedm2m-container')) {
+                    const container = $input[0].querySelector('.sortedm2m-items')
+                    const items = container.querySelectorAll('.sortedm2m-item')
+
+                    const newItem = document.createElement('li')
+                    newItem.classList.add('sortedm2m-item')
+
+                    const label = document.createElement('label')
+                    label.setAttribute('for', `id_items_${items.length}`)
+                    const labelText = document.createTextNode(response.obj)
+
+                    const input = document.createElement('input')
+                    input.setAttribute('type', 'checkbox')
+                    input.setAttribute('value', `${response.value}`)
+                    input.setAttribute('id', `id_items_${items.length}`)
+                    input.classList.add('sortedm2m')
+
+                    container.appendChild(newItem)
+                    newItem.appendChild(label)
+                    label.appendChild(input)
+                    label.appendChild(labelText)
+
+                    console.log('sortedm2m')
                 }
 
                 break;
