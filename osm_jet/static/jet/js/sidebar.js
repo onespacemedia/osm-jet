@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // for mobile, don't set this as Jet does something else with the sidebar for mobiles
   if (window.innerWidth > 960) {
     // appsList contains nodes with data atributes of the form: data-app-label="APP"
-    var appsList = Array.from(document.querySelectorAll('.app-item'))
+    var appsList = document.querySelectorAll('.app-item')
 
     // popupList contains nodes with classes of the form: sidebar-popup-section-APP
     var popupsList = document.querySelector('.sidebar-popup')
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function sidebarHoverIn (el, popupsList, popup) {
       popupsList.style.top = el.getBoundingClientRect().top + 'px'
 
-      var popupsArray = Array.from(popupsList.querySelectorAll('.sidebar-popup-section'))
+      var popupsArray = popupsList.querySelectorAll('.sidebar-popup-section')
       for (var i = popupsArray.length - 1; i >= 0; i--) {
         popupsArray[i].style.display = 'none'
       }
