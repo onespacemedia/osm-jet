@@ -5,6 +5,9 @@
 * Bring in Jet's JS locally to more cleanly make changes/fixes
 * Fix issue with CompactInline where saveing with errors made an extra empty item
 * Fix inline add another button on SortedM2M and DjangoM2Ms not opening in the popup iframe
+* Update CSS for Checkbox fields to bring them inline stylewise with other fields
+* Fix errors on login form rendering multiple times
+* Adjust object-tool CSS the make it always one line of buttons
 
 ## 1.0.6 - 2019-09-03
 * Fix sidebar not working for mobiles
