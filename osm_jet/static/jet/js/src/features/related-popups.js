@@ -286,16 +286,13 @@ RelatedPopups.prototype = {
     run: function() {
         this.windowStorage.push(window);
 
-        try {
-            this.initLinks();
-            this.initPopupBackButton();
-            this.findPopupResponse();
-            this.overrideRelatedGlobals();
-            this.initDeleteRelatedCancellation();
-            this.initLookupLinks();
-        } catch (e) {
-            console.error(e, e.stack);
-        }
+        this.initLinks();
+        this.initPopupBackButton();
+        this.findPopupResponse();
+        this.overrideRelatedGlobals();
+        this.initDeleteRelatedCancellation();
+        this.initLookupLinks();
+        console.error(e, e.stack);
     }
 };
 
