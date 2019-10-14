@@ -57,7 +57,7 @@ CompactInline.prototype = {
     updateTotalForms: function($inline) {
         var $totalFormsInput = $inline.find('[name="' + this.prefix + '-TOTAL_FORMS"]');
         var $maxFormsInput = $inline.find('[name="' + this.prefix + '-MAX_NUM_FORMS"]');
-        var totalForms = parseInt($inline.find('.inline-related').length);
+        var totalForms = parseInt($inline.find('.inline-related:not(.empty-form)').length);
         var maxForms = $maxFormsInput.val() ? parseInt($maxFormsInput.val()) : Infinity;
 
         $totalFormsInput.val(totalForms);
