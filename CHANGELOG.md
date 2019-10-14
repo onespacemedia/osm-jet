@@ -1,6 +1,6 @@
 # Changelog
 
-## Next release
+## 1.1.0 - 2019-10-14
 * Fix rendering of model name on delete button (use `verbose_name` rather than `model_name`)
 * Bring in Jet's JS locally to more cleanly make changes/fixes
 * Fix issue with CompactInline where saveing with errors made an extra empty item
