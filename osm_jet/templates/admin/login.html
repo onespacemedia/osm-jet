@@ -20,22 +20,14 @@
       {% endblock %}
       <div class="ath-Wrapper">
         <div class="ath-Form">
-          <form class="frm-Form" method="post">
-            {% if form.non_field_errors %}
-              {% for error in form.non_field_errors %}
-                <p class="frm-Error">{{ error }}</p>
-              {% endfor %}
-            {% endif %}
+          <form class="frm-Form" method="post" novalidate>
+            {{ form.as_p }}
 
-            <form class="frm-Form" method="post">
-              {{ form.as_p }}
+            <div class="frm-Actions">
+              {% csrf_token %}
 
-              <div class="frm-Actions">
-                {% csrf_token %}
-
-                <button class="frm-Action" type="submit">Log in</button>
-              </div>
-            </form>
+              <button class="frm-Action" type="submit">Log in</button>
+            </div>
           </form>
         </div>
         <div class="ath-Below">
