@@ -2,6 +2,9 @@
 
 ## Next release
 * Fix rendering of model name on delete button (use `verbose_name` rather than `model_name`)
+* Bring in Jet's JS locally to more cleanly make changes/fixes
+* Fix issue with CompactInline where saveing with errors made an extra empty item
+* Fix inline add another button on SortedM2M and DjangoM2Ms not opening in the popup iframe
 
 ## 1.0.6 - 2019-09-03
 * Fix sidebar not working for mobiles
