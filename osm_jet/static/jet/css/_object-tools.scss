@@ -26,7 +26,7 @@
   }
 
   &.initialized {
-    display: block;
+    display: flex;
   }
 
   .form-row & {
@@ -51,7 +51,7 @@
 
   li {
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 0 0 5px;
 
     list-style-type: none;
     vertical-align: top;

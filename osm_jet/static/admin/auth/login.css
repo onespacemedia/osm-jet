@@ -246,7 +246,9 @@ html {
   background-color: #FFFFFF;
 }
 
-.frm-Error {
+ul.errorlist li {
+  margin-bottom: 12px;
+
   font-size: 14px;
   line-height: 18px;
   color: #cf011c;

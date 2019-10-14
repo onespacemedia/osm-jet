@@ -1,0 +1,29 @@
+{
+  "name": "osm-jet",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack --watch --mode development",
+    "build": "webpack --mode production"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "browsernizr": "^2.3.0",
+    "jquery": "1.11.3",
+    "jquery-ui": "git://github.com/jquery/jquery-ui#1.11.4",
+    "jquery.cookie": "^1.4.1",
+    "jquery.mousewheel": "3.1.9",
+    "perfect-scrollbar": "git://github.com/noraesae/perfect-scrollbar#0.6.5",
+    "select2": "^4.0.10",
+    "timepicker": "git://github.com/geex-arts/timepicker",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  }
+}

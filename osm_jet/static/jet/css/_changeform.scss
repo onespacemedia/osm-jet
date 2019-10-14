@@ -124,19 +124,16 @@ form {
     margin-bottom: 0;
   }
 
-  .vCheckboxLabel {
-    display: inline-block;
-    width: auto;
-    float: none;
-    padding: 0 0 5px;
-    vertical-align: -3px;
+  .checkbox-row {
+    align-items: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 
-    line-height: 1.4;
+    display: flex;
 
-    cursor: pointer;
-
-    & + p.help {
-      margin-top: -4px;
+    p.help {
+      width: 100%;
     }
   }
 }
