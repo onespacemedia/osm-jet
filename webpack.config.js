@@ -5,5 +5,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'osm_jet/static/jet/js/build'),
     filename: 'bundle.min.js'
+  },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader'
+    }]
   }
 };

@@ -4,6 +4,8 @@ jet = {
     jQuery: $
 };
 
+require('babel-polyfill');
+
 require('./layout-updaters/actions');
 require('./layout-updaters/breadcrumbs');
 require('./layout-updaters/paginator');
