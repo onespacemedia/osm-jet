@@ -207,7 +207,7 @@ RelatedPopups.prototype = {
                 } else if ($input.is('div.sortedm2m-container')) {
                     const container = $input[0].querySelector('.sortedm2m-items')
                     const items = container.querySelectorAll('.sortedm2m-item')
-                    const hiddenInput = $input[0].querySelector('#id_items')
+                    const hiddenInput = $input[0].querySelector('input[type="hidden"]')
                     let value = hiddenInput.getAttribute('value')
 
                     if (value) {
