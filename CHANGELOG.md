@@ -1,5 +1,8 @@
 # Changelog
 
+## Next release
+* Fix rendering of model name on delete button (use `verbose_name` rather than `model_name`)
+
 ## 1.0.6 - 2019-09-03
 * Fix sidebar not working for mobiles
 * Hide fields named 'order' on compact inlines
