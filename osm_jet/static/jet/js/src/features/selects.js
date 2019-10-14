@@ -215,7 +215,7 @@ Select2.prototype = {
         $(document).on('select:init', 'select', function() {
             var $select = $(this);
 
-            if ($select.parents('.empty-form').length > 0) {
+            if ($select.parents('.empty-form, .js-NoSelect2').length > 0) {
                 return;
             }
 
