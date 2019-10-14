@@ -1,6 +1,10 @@
 # Changelog
 
-## Next release
+## 1.1.1 - 2019-10-14
+* Fix incorrect querySelector in related-popups.js when getting the hidden input for sortedm2ms
+* Remove try catch block in related-popups.js that was suppressing errors
+
+## 1.1.0 - 2019-10-14
 * Fix rendering of model name on delete button (use `verbose_name` rather than `model_name`)
 * Bring in Jet's JS locally to more cleanly make changes/fixes
 * Fix issue with CompactInline where saveing with errors made an extra empty item
