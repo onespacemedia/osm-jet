@@ -285,6 +285,10 @@ RelatedPopups.prototype = {
 };
 
 $(document).ready(function() {
+    /*
+     *  JET js assumes the add another button will have the same parent as the select element
+     *  so we have to move the button for DjangoM2Ms to be next to the 'new' select element
+     */
     const djangoM2M = document.querySelectorAll('.js-DjangoM2MContainer')
     for (const el of djangoM2M) {
         const newContainer = el.querySelector('.js-SelectMultiple_New')
