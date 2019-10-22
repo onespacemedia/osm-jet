@@ -292,7 +292,6 @@ RelatedPopups.prototype = {
         this.overrideRelatedGlobals();
         this.initDeleteRelatedCancellation();
         this.initLookupLinks();
-        console.error(e, e.stack);
     }
 };
 

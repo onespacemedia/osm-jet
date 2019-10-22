@@ -9,6 +9,7 @@ MANIFEST
 dist/
 
 __pycache__/
+osm_jet.egg-info/
 
 node_modules/
 yarn-error.log

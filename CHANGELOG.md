@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2 - 2019-10-22
+* Make side menu play nicer with permissions.
+* Fix a JS exception.
+
 ## 1.1.1 - 2019-10-14
 * Fix incorrect querySelector in related-popups.js when getting the hidden input for sortedm2ms
 * Remove try catch block in related-popups.js that was suppressing errors
