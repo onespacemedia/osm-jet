@@ -56,6 +56,8 @@ In addition to the above, `osm_jet` overrides multiple Django and Jet templates 
 
 * `templates/admin/nav_links.html` - For adding links to the top of your sidebar on all admin pages.
 * `templates/admin/sharing_links.html` - For adding buttons to share any object from its change form.
+* `templates/admin/body_top.html` - For adding content to the top of every admin page's body.
+* `templates/admin/body_bottom.html` - For adding content to the bottom of every admin page's body.
 
 [django-project]: <https://www.djangoproject.com/>
 [jet-repo]: <https://github.com/geex-arts/django-jet>
