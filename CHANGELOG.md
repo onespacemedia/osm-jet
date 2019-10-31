@@ -1,8 +1,12 @@
 # Changelog
 
+## 1.1.3 - 2019-10-31
+* Add ability to add extra links to admin login page
+* Add utility templates for adding content to the top and bottom of the body respectively
+
 ## 1.1.2 - 2019-10-22
-* Make side menu play nicer with permissions.
-* Fix a JS exception.
+* Make side menu play nicer with permissions
+* Fix a JS exception
 
 ## 1.1.1 - 2019-10-14
 * Fix incorrect querySelector in related-popups.js when getting the hidden input for sortedm2ms
@@ -27,7 +31,7 @@
 * Fix issue with sortedM2M not getting initialised outside of CompactInlines
 
 ## 1.0.4 - 2019-07-30
-* Fix for `admin/change_form.html`.
+* Fix for `admin/change_form.html`
 
 ## 1.0.1-1.0.3
 * Packaging fixes

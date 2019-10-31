@@ -41,6 +41,7 @@
 
 <body class="{% if request.COOKIES.sidebar_pinned != 'false' %}menu-pinned {% endif %}{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}"
   data-admin-utc-offset="{% now "Z" %}">
+  {% block body_top %}{% endblock %}
   {% block main_content %}
 
     <!-- Container -->
@@ -193,7 +194,7 @@
                                 </span>
                             </a>
                         {% endif %}
-                        {% block nav-global %}{% endblock %}
+                        {% block nav_global %}{% endblock %}
                     </div>
 
                     {% if user.is_active and user.is_staff %}
@@ -396,5 +397,6 @@
     </div>
     <!-- END Container -->
   {% endblock %}
+  {% block body_bottom %}{% endblock %}
 </body>
 </html>{% endblock %}

@@ -45,6 +45,14 @@
   {{ block.super }}
 {% endblock %}
 
-{% block nav-global %}
+{% block nav_global %}
   {% include 'admin/nav_links.html' %}
+{% endblock %}
+
+{% block body_bottom %}
+  {% include 'admin/body_bottom.html' %}
+{% endblock %}
+
+{% block body_top %}
+  {% include 'admin/body_top.html' %}
 {% endblock %}
