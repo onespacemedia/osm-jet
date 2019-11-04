@@ -1,5 +1,8 @@
 # Changelog
 
+## Next release
+* Add '?preview=1' to sitemap on-site URLs to allow administrators to view offline pages.
+
 ## 1.1.3 - 2019-10-31
 * Add ability to add extra links to admin login page
 * Add utility templates for adding content to the top and bottom of the body respectively
