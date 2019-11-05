@@ -80,7 +80,7 @@ RelatedPopups.prototype = {
     initLinks: function() {
         var self = this;
 
-        $('.form-row').each(function() {
+        $('.form-row:not(.empty-form .form-row)').each(function() {
             self.initLinksForRow($(this));
         });
 

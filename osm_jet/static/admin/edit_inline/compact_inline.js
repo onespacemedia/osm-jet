@@ -70,59 +70,6 @@ function initDraggables () {
 }
 
 /**
- * Check the value of a particular field and if it changes update the value of the
- * currently selected field to be that value. Then reset the original field's value
- */
-function observeHiddenFieldValue (hiddenField, baseValue) {
-  // Since this is run on an interval, we deal with the most likely cast first and break out ASAP
-  if (hiddenField.value === baseValue) {
-    return
-  }
-
-  // If it does have a value, get the currently selected section and also get the version of this field in that section.
-  var activeSectionId = document.querySelector('.inline-navigation-item.selected').dataset.inlineRelatedId
-  var activeSection = document.getElementById(activeSectionId)
-  var fieldName = hiddenField.id.split('-')
-  fieldName = fieldName[fieldName.length - 1]
-  var field = activeSection.querySelector('.field-' + fieldName + ' ' + hiddenField.nodeName)
-
-  if (hiddenField.nodeName === 'SELECT') {
-    // If the hidden field is a select, we need to copy the entire option node over.
-    var selectedOption = hiddenField.querySelectorAll('option')[hiddenField.selectedIndex]
-    var newOption = selectedOption.cloneNode(true)
-    field.appendChild(newOption)
-    field.value = newOption.value
-    hiddenField.value = baseValue
-
-    // We also need to update the select2 active box to the new text as well.
-    field.parentNode.querySelector('.select2-selection__rendered').title = newOption.textContent
-    field.parentNode.querySelector('.select2-selection__rendered').textContent = newOption.textContent
-  } else {
-    // If it's just an input, we can just Update the values and clear the old input and not have to do anything fancy
-    field.value = hiddenField.value
-    hiddenField.value = baseValue
-  }
-}
-
-/**
- * Add some listeners to the ForeignKey and RawID fields on the hidden form as there's
- * an issue where if you add a new section and then use a field e.g. to insert an image.
- * The value for the image will get inserted into that field on the hidden form rather
- * than on the new section.
- */
-function trackHiddenFields () {
-  var emptySectionId = document.querySelector('.inline-navigation-item.empty').dataset.inlineRelatedId
-  var emptySection = document.getElementById(emptySectionId)
-  var emptySectionTrackingFields = emptySection.querySelectorAll('.vForeignKeyRawIdAdminField, .related-widget-wrapper select')
-
-  for (var i = 0; i < emptySectionTrackingFields.length; i++) {
-    // Check semi-regularly for any updates to input values.
-    var fieldDefault = emptySectionTrackingFields[i].value
-    setInterval(observeHiddenFieldValue.bind(this, emptySectionTrackingFields[i], fieldDefault), 300)
-  }
-}
-
-/**
  * Clearly indicate the section that has an error on it.
  * Interate over all the sections and if it has an error, add a class to that sections sidebar item.
  */
@@ -151,7 +98,6 @@ function initWYSIWYG () {
 
 document.addEventListener('DOMContentLoaded', function () {
   initDraggables()
-  trackHiddenFields()
   highlightErrors()
   initWYSIWYG()
 
