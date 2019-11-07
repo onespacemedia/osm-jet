@@ -6,6 +6,8 @@ from django.db import models
 from django.forms import SelectMultiple, CheckboxSelectMultiple, CheckboxInput
 from django.utils.encoding import force_text
 from django.utils.html import conditional_escape
+
+# Catch the case that the user doesn't have sortedM2M installed
 try:
     from sortedm2m.forms import SortedMultipleChoiceField
     from sortedm2m.fields import SortedManyToManyField
