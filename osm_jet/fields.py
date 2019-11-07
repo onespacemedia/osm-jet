@@ -3,7 +3,7 @@ from itertools import chain
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.urlresolvers import NoReverseMatch, reverse
 from django.db import models
-from django.forms import SelectMultiple, CheckboxSelectMultiple, CheckboxInput
+from django.forms import CheckboxInput, CheckboxSelectMultiple, SelectMultiple
 from django.utils.encoding import force_text
 from django.utils.html import conditional_escape
 
