@@ -7,17 +7,23 @@
   </p>
   <ul class="sortedm2m-items">
     {% for row in selected %}
-      <li class="sortedm2m-item">
-        <label{{ row.label_for|safe }}>{{ row.rendered_cb }} {{ row.option_label }}</label>
-        <a class="edit-link" href="{{ row.edit_link }}">
+      <li class="sortedm2m-item form-row">
+        <label{{ row.label_for|safe }} class="sortedm2m-item-label">
+          {{ row.rendered_cb }}
+          <span class="sortedm2m-item-name">{{ row.option_label }}</span>
+        </label>
+        <a class="edit-link change-related" href="{{ row.edit_link }}">
           <span class="icon-edit"></span>
         </a>
       </li>
     {% endfor %}
 
     {% for row in unselected %}
-      <li class="sortedm2m-item">
-        <label{{ row.label_for|safe }}>{{ row.rendered_cb }} {{ row.option_label }}</label>
+      <li class="sortedm2m-item form-row">
+        <label{{ row.label_for|safe }} class="sortedm2m-item-label">
+          {{ row.rendered_cb }}
+          <span class="sortedm2m-item-name">{{ row.option_label }}</span>
+        </label>
         <a class="edit-link" href="{{ row.edit_link }}">
           <span class="icon-edit"></span>
         </a>

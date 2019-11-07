@@ -84,6 +84,9 @@ ul.sortedm2m li.ui-sortable-placeholder + li {
 }
 
 ul.sortedm2m li label {
+  align-items: center;
+
+  display: flex;
   width: auto !important;
   padding: 0;
 
