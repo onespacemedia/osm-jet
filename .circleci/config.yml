@@ -1,0 +1,63 @@
+version: 2
+jobs:
+  test_python:
+    working_directory: ~/osm-jet
+    docker:
+      - image: circleci/python:3.6.2
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
+      - run:
+          name: install python dependencies
+          command: |
+            python3 -m venv .venv
+            . .venv/bin/activate
+            pip install -U setuptools
+            pip install -r requirements.txt
+      - save_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
+          paths:
+            - .venv
+      - run:
+          name: pylint
+          command: |
+            . .venv/bin/activate
+            pylint osm_jet/ --load-plugins pylint_django,pylint_mccabe --ignore=migrations,tests -d missing-docstring,invalid-name,no-init,too-many-ancestors,no-member,line-too-long,attribute-defined-outside-init,too-few-public-methods,no-self-use,unused-argument,protected-access,locally-disabled,duplicate-code --reports=n
+      - run:
+          name: iSort
+          command: |
+            . .venv/bin/activate
+            isort --check-only --diff --quiet --skip-glob=.venv --skip-glob=node_modules --skip-glob=*/migrations/* --skip issue_notify.py
+
+  test_assets:
+    working_directory: ~/osm-jet
+    docker:
+      - image: circleci/node:12.12.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "package.json" }}
+      - run:
+          name: install npm dependencies
+          command: |
+            yarn install
+      - save_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: stylelint
+          command: |
+            yarn run lint:css
+      - run:
+          name: eslint
+          command: |
+            yarn run lint:js
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test_python
+      - test_assets

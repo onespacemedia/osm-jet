@@ -3,7 +3,9 @@
   "main": "main.js",
   "scripts": {
     "dev": "webpack --watch --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint:css": "stylelint \"osm_jet/static/**/*.css\"",
+    "lint:js": "eslint --ext .js,.vue osm_jet/static/**/*.js"
   },
   "babel": {
     "presets": [
@@ -16,12 +18,23 @@
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
     "browsernizr": "^2.3.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-compat": "^3.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "jquery": "1.11.3",
     "jquery-ui": "git://github.com/jquery/jquery-ui#1.11.4",
     "jquery.cookie": "^1.4.1",
     "jquery.mousewheel": "3.1.9",
     "perfect-scrollbar": "git://github.com/noraesae/perfect-scrollbar#0.6.5",
     "select2": "^4.0.10",
+    "stylelint": "^11.1.1",
+    "stylelint-order": "^3.1.1",
     "timepicker": "git://github.com/geex-arts/timepicker",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9"
