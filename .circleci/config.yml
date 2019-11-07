@@ -54,6 +54,11 @@ jobs:
           name: eslint
           command: |
             yarn run lint:js
+      - run:
+          name: check_minified_js
+          command: |
+            yarn build
+            git diff --quiet
 
 workflows:
   version: 2
