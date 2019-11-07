@@ -75,7 +75,7 @@ if (typeof jQuery === 'undefined') {
             if (curr.indexOf(search) === -1) {
               $(this).css('display', 'none');
             } else {
-              $(this).css('display', 'inherit');
+              $(this).css('display', '');
             }
           });
         });

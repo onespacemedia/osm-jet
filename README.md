@@ -47,6 +47,7 @@ JET_WIDGET_SELECTOR = False            # Hides the widget selector.
 #### Fields
 * `osm_jet.fields.DjangoManyToMany` - Brings back the default Django style of ManyToMany widgets if you're not a fan of Jet's select2 version.
 * Fixes and style overrides for Jazzband's [sortedM2M][sortedm2m]
+* `osm_jet.fields.JetSortedManyToManyField` - An alternate version of Jazzband's [sortedM2M][sortedm2m] which adds inline editing to objects in the field.
 
 #### Dashboard
 * `osm_jet.dashboard.Dashboard` - This should only be used if you're also using the [Onespacemedia CMS][osm-cms]. This adds the sitemap module to the dashboard. For more information on usage, see the [Jet docs](https://jet.readthedocs.io/en/latest/dashboard_custom.html#set-up-custom-dashboard) on creating custom Dashboards.

@@ -31,7 +31,7 @@ RelatedPopups.prototype = {
 
         var self = this;
 
-        $row.find('select, .sortedm2m-container').each(function() {
+        $row.find('select, > .sortedm2m-container, > .sortedm2m-item-label').each(function() {
             var $select = $(this);
 
             self.updateLinks($select);
@@ -165,13 +165,17 @@ RelatedPopups.prototype = {
 
         switch (response.action) {
             case 'change':
-                $input.find('option').each(function() {
-                    var $option = $(this);
+                if ($input.is('label.sortedm2m-item-label')) {
+                    $input.find('.sortedm2m-item-name').html(response.obj);
+                } else {
+                    $input.find('option').each(function() {
+                        var $option = $(this);
 
-                    if ($option.val() == response.value) {
-                        $option.html(response.obj).val(response.new_value);
-                    }
-                });
+                        if ($option.val() == response.value) {
+                            $option.html(response.obj).val(response.new_value);
+                        }
+                    });
+                }
 
                 $input.trigger('change').trigger('select:init');
 
