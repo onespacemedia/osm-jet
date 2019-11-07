@@ -97,7 +97,7 @@ class SortedManyToManyWidget(CheckboxSelectMultiple):
     def value_from_datadict(self, data, files, name):
         value = data.get(name, None)
 
-        if isinstance(value, string_types):
+        if isinstance(value, str):
             return [v for v in value.split(',') if v]
 
         return value
@@ -181,4 +181,4 @@ class JetSortedManyToManyField(SortedManyToManyField):
 
         defaults.update(kwargs)
 
-        return super(SortedManyToManyField, self).formfield(**defaults)
+        return super().formfield(**defaults)

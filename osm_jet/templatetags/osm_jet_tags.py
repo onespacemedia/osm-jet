@@ -33,6 +33,7 @@ def get_menu_item_url(url, original_app_list):
         return url
 
 
+# pylint: disable=too-complex
 @assignment_tag(takes_context=True)
 def osm_jet_get_menu(context):
     pinned_apps = PinnedApplication.objects.filter(user=context['user'].pk).values_list('app_label', flat=True)
