@@ -3,9 +3,11 @@ from itertools import chain
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.urlresolvers import NoReverseMatch, reverse
 from django.db import models
-from django.forms import SelectMultiple, CheckboxSelectMultiple, CheckboxInput
+from django.forms import CheckboxInput, CheckboxSelectMultiple, SelectMultiple
 from django.utils.encoding import force_text
 from django.utils.html import conditional_escape
+
+# Catch the case that the user doesn't have sortedM2M installed
 try:
     from sortedm2m.forms import SortedMultipleChoiceField
     from sortedm2m.fields import SortedManyToManyField
@@ -97,7 +99,7 @@ class SortedManyToManyWidget(CheckboxSelectMultiple):
     def value_from_datadict(self, data, files, name):
         value = data.get(name, None)
 
-        if isinstance(value, string_types):
+        if isinstance(value, str):
             return [v for v in value.split(',') if v]
 
         return value
@@ -128,6 +130,7 @@ class SortedManyToManyWidget(CheckboxSelectMultiple):
             option_value = force_text(option_value)
             rendered_cb = cb.render(name, option_value)
             option_label = conditional_escape(force_text(option_label))
+
             try:
                 edit_link = reverse(
                     f'admin:{self.model_cls._meta.app_label}_{self.model_cls._meta.model_name}_change',
@@ -181,4 +184,4 @@ class JetSortedManyToManyField(SortedManyToManyField):
 
         defaults.update(kwargs)
 
-        return super(SortedManyToManyField, self).formfield(**defaults)
+        return super().formfield(**defaults)
