@@ -128,6 +128,7 @@ class SortedManyToManyWidget(CheckboxSelectMultiple):
             option_value = force_text(option_value)
             rendered_cb = cb.render(name, option_value)
             option_label = conditional_escape(force_text(option_label))
+
             try:
                 edit_link = reverse(
                     f'admin:{self.model_cls._meta.app_label}_{self.model_cls._meta.model_name}_change',
