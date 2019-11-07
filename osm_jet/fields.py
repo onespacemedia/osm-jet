@@ -51,11 +51,13 @@ class SortedManyToManyWidget(CheckboxSelectMultiple):
     '''
         A customised version of the sortedM2M SortedCheckboxSelectMultiple.
 
-        Add the current model to the context so that we can have 'edit' links
-        in the select multiple.
+        Adds an inline edit link for each object in the widget.
+
+        Code has been refactored a bit from the base sortedM2M
+        SortedCheckboxSelectMultipleto be more up to date with widget
+        rendering styles.
     '''
     template_name = 'sortedm2m/sorted_checkbox_select_multiple_widget.html'
-    model_cls = None
 
     class Media:
         js = (
@@ -66,6 +68,10 @@ class SortedManyToManyWidget(CheckboxSelectMultiple):
         css = {'screen': (
             'sortedm2m/widget.css',
         )}
+
+    def __init__(self, **kwargs):
+        self.model_cls = None
+        super().__init__(**kwargs)
 
     def build_attrs(self, base_attrs, extra_attrs=None):
         attrs = dict(base_attrs or {}, **extra_attrs)
