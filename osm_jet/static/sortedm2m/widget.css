@@ -54,6 +54,9 @@ ul.sortedm2m,
 }
 
 ul.sortedm2m li {
+  align-items: center;
+
+  display: flex;
   width: 100%;
   padding: 10px;
 
@@ -81,6 +84,7 @@ ul.sortedm2m li.ui-sortable-placeholder + li {
 }
 
 ul.sortedm2m li label {
+  width: auto !important;
   padding: 0;
 
   font-weight: 500;
@@ -90,6 +94,18 @@ ul.sortedm2m li label {
 ul.sortedm2m li label input {
   margin: 0;
   margin-right: 5px;
+}
+
+ul.sortedm2m li .edit-link {
+  display: flex;
+  margin-left: auto;
+
+  cursor: pointer;
+}
+
+ul.sortedm2m li .icon-edit {
+  width: 14px;
+  height: 14px;
 }
 
 /* required to work properly in django admin */
