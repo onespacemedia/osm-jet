@@ -1,6 +1,7 @@
 # Changelog
 
 ## Next release
+* Add CircleCI builds
 * Add 'Edit' button to objects in a sortedM2M field
 * Add '?preview=1' to sitemap on-site URLs to allow administrators to view offline pages.
 
