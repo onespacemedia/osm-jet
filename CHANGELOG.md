@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.4 - 2019-11-12
+* Add CircleCI builds
+* Add copy links for offline page preview URLs
+* Fix being unable to re-order CompactInlines on IE11 and Edge
+* Add new JetSortedManyToMany field that adds edit buttons to sortedm2m admin fields
+* Generally fix an issue with admin field values being added to the hidden form on CompactInlines
+* Add preview query string to 'View on site' buttons
+
 ## 1.1.3 - 2019-10-31
 * Add ability to add extra links to admin login page
 * Add utility templates for adding content to the top and bottom of the body respectively
