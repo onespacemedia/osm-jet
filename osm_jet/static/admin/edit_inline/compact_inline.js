@@ -59,6 +59,7 @@ function initDraggables () {
     /* eslint-enable no-undef */
     // handle: '.drag-handle',
     animation: 100,
+    forceFallback: true,
     onStart: function (evt, originalEvent) {
       document.querySelector('.inline-navigation-content').classList.add('dragging')
     },
