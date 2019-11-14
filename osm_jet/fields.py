@@ -59,7 +59,7 @@ class SortedManyToManyWidget(CheckboxSelectMultiple):
         SortedCheckboxSelectMultipleto be more up to date with widget
         rendering styles.
     '''
-    template_name = 'sortedm2m/sorted_checkbox_select_multiple_widget.html'
+    template_name = 'widgets/sortedm2m_editlinks.html'
 
     class Media:
         js = (
