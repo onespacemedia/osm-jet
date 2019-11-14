@@ -1,3 +1,4 @@
+/* stylelint-disable  selector-class-pattern, property-no-vendor-prefix, selector-max-type, selector-no-qualifying-type */
 @import "../globals";
 
 .select2-container--jet {
@@ -6,11 +7,12 @@
   min-width: 160px;
 
   .select2-selection {
+    min-height: 32px;
+
     background-color: $input-background-color;
     border: 1px solid $input-border-color;
     border-radius: $button-border-radius;
     outline: 0;
-    height: 32px;
 
     @include for-mobile {
       fieldset.module & {
@@ -19,9 +21,10 @@
     }
 
     .select2-selection__rendered {
-      color: $input-text-color;
-      line-height: $input-height;
       font-size: 13px;
+      line-height: $input-height;
+
+      color: $input-text-color;
     }
 
     .select2-selection__placeholder {
@@ -30,17 +33,19 @@
   }
 
   .select2-buttons {
-    background-color: $input-contrast-background-color;
+    padding: 6px;
 
-    text-align: center;
     font-size: 12px;
     letter-spacing: 1px;
-    padding: 6px;
+    text-align: center;
+
+    background-color: $input-contrast-background-color;
 
     &-button {
       &, &:visited, &:hover {
-        color: $input-contrast-text-color;
         margin-left: 10px;
+
+        color: $input-contrast-text-color;
       }
 
       &:hover {
@@ -54,10 +59,11 @@
   }
 
   .select2-dropdown {
+    z-index: 1;
+
     border: 0;
     border-radius: $button-border-radius;
     overflow: hidden;
-    z-index: 1;
 
     &--below {
       top: -$input-height;
@@ -76,32 +82,29 @@
     padding: 0;
 
     .select2-search__field {
-      outline: 0;
-      border: 0;
-      background-color: $input-background-color;
-      color: $input-text-color;
       height: $input-height;
-      -webkit-appearance: textfield;
-      box-shadow: none;
+      outline: 0;
+
+      background-color: $input-background-color;
       border: 1px solid #cbcbcb;
+      box-shadow: none;
+      color: $input-text-color;
+
+      -webkit-appearance: textfield;
     }
   }
 
   .select2-search--inline {
     .select2-search__field {
-      background: transparent;
-      border: none;
-      outline: 0;
-      color: $input-text-color;
-      -webkit-appearance: textfield;
-      box-shadow: none;
+      display: none;
     }
   }
 
   .select2-results > .select2-results__options {
     max-height: 200px;
-    overflow-y: auto;
+
     border: 1px solid #cbcbcb;
+    overflow-y: auto;
   }
 
   .select2-results__option {
@@ -159,8 +162,10 @@
   }
 
   .select2-results__group {
-    cursor: default;
     display: block;
     padding: 6px;
+
+    cursor: default;
   }
 }
+/* stylelint-enable  selector-class-pattern, property-no-vendor-prefix, selector-max-type, selector-no-qualifying-type */
