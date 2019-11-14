@@ -1,5 +1,10 @@
 # Changelog
 
+## Next release
+* Bump Django version for secruity patches
+* Fix small issue with edit buttons not hooking up on JetSortedManyToMany
+* Fix error with adding the first item to a SortedManyToMany
+
 ## 1.1.4 - 2019-11-12
 * Add CircleCI builds
 * Add copy links for offline page preview URLs
