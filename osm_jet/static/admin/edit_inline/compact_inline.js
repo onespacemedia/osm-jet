@@ -53,11 +53,7 @@ function initDraggables () {
     sortableItems[i].insertAdjacentElement('afterbegin', createHandle())
   }
 
-  // the js for this object gets included in the Media object for the compact inline so it is avaliable at runtime.
-  /* eslint-disable no-undef */
-  Sortable.create(document.querySelector('.inline-navigation-items'), {
-    /* eslint-enable no-undef */
-    // handle: '.drag-handle',
+  var sortableArgs = {
     animation: 100,
     forceFallback: true,
     onStart: function (evt, originalEvent) {
@@ -67,7 +63,14 @@ function initDraggables () {
       document.querySelector('.inline-navigation-content').classList.remove('dragging')
       updateOrders()
     }
-  })
+  }
+
+  if (window.innerWidth < 450) {
+    sortableArgs.handle = '.drag-handle'
+  }
+
+  // the js for this object gets included in the Media object for the compact inline so it is avaliable at runtime.
+  Sortable.create(document.querySelector('.inline-navigation-items'), sortableArgs) // eslint-disable-line no-undef
 }
 
 /**
