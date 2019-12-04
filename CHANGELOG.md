@@ -1,6 +1,6 @@
 # Changelog
 
-## Next release
+## 1.1.5 - 2019-12-04
 * Be less specific about required Django version
 * Fix small issue with edit buttons not hooking up on JetSortedManyToMany
 * Fix error with adding the first item to a SortedManyToMany
