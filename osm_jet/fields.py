@@ -1,9 +1,9 @@
 from itertools import chain
 
 from django.contrib.staticfiles.storage import staticfiles_storage
-from django.core.urlresolvers import NoReverseMatch, reverse
 from django.db import models
 from django.forms import CheckboxInput, CheckboxSelectMultiple, SelectMultiple
+from django.urls import NoReverseMatch, reverse
 from django.utils.encoding import force_text
 from django.utils.html import conditional_escape
 
@@ -14,6 +14,7 @@ try:
 except ImportError:
     class SortedMultipleChoiceField:
         pass
+
     class SortedManyToManyField:
         pass
 
@@ -44,7 +45,7 @@ class DjangoManyToMany(models.ManyToManyField):
         fields.
     '''
 
-    def formfield(self, **kwargs):
+    def formfield(self, **kwargs):  # pylint:disable=arguments-differ
         kwargs['widget'] = DjangoManyToManyWidget
         return super().formfield(**kwargs)
 
@@ -59,7 +60,7 @@ class SortedManyToManyWidget(CheckboxSelectMultiple):
         SortedCheckboxSelectMultipleto be more up to date with widget
         rendering styles.
     '''
-    template_name = 'sortedm2m/sorted_checkbox_select_multiple_widget.html'
+    template_name = 'widgets/sortedm2m_editlinks.html'
 
     class Media:
         js = (

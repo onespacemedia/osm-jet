@@ -2,7 +2,7 @@ from cms.apps.pages.admin import (PAGE_FROM_KEY, PAGE_FROM_SITEMAP_VALUE,
                                   page_admin)
 from cms.apps.pages.models import Page
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from jet.dashboard.modules import DashboardModule
 
 

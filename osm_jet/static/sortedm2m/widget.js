@@ -18,15 +18,8 @@ if (typeof jQuery === 'undefined') {
         name = checkboxes.first().attr('name');
         checkboxes.removeAttr('name');
       } else {
-        var label;
-        var currentElement = ul;
-
-        while (!label || !label.length) {
-          currentElement = currentElement.parent();
-          label = currentElement.siblings('label');
-        }
-
-        id = label.attr('for').match(/^(.*)_\d+$/)[1];
+        var addId = ul.parent().parent().find('.add-related').attr('id')
+        id = addId.replace(/^add_/, '');
         name = id.replace(/^id_/, '');
       }
 
@@ -53,9 +46,7 @@ if (typeof jQuery === 'undefined') {
     function iterateUl () {
       $(':not(.empty-form) .sortedm2m-items').each(function () {
         var ul = $(this);
-        if ($.trim(ul.html())) {
-          prepareUl(ul);
-        }
+        prepareUl(ul);
         ul.removeClass('hide');
       });
     }

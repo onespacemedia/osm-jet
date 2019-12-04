@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.5 - 2019-12-04
+* Be less specific about required Django version
+* Fix small issue with edit buttons not hooking up on JetSortedManyToMany
+* Fix error with adding the first item to a SortedManyToMany
+* Fix a Django 2.2 incompatibility
+* Make sidebar nav items flow up rather than down if they would go below the bottom of the page
+
 ## 1.1.4 - 2019-11-12
 * Add CircleCI builds
 * Add copy links for offline page preview URLs

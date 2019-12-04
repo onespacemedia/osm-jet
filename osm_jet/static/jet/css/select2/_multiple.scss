@@ -1,18 +1,21 @@
+/* stylelint-disable  selector-class-pattern, property-no-vendor-prefix, selector-max-type, selector-no-qualifying-type, declaration-no-important */
 @import "../globals";
 
 .select2-selection--multiple {
+  min-height: $input-height;
+  height: auto;
+
   background-color: $input-background-color !important;
   border: 1px solid $input-border-color;
   cursor: text;
-  height: auto;
-  min-height: $input-height;
 
   .select2-selection__rendered {
-    box-sizing: border-box;
-    list-style: none;
+    width: 100%;
     margin: 0;
     padding: 0 5px;
-    width: 100%;
+
+    list-style: none;
+    box-sizing: border-box;
 
     li {
       list-style-type: none;
@@ -20,33 +23,41 @@
   }
 
   .select2-selection__clear {
-    cursor: pointer;
     float: right;
-    font-weight: bold;
+
     margin-top: 5px;
     margin-right: 10px;
+
+    font-weight: bold;
+
+    cursor: pointer;
   }
 
   .select2-selection__choice {
-    background-color: $input-contrast-background-color;
-    color: $input-contrast-text-color;
-    font-size: 13px;
-    border-radius: $button-border-radius;
-    cursor: default;
     float: left;
-    margin-right: 5px;
+
     margin-top: 5px;
-    padding: 5px 5px;
+    margin-right: 5px;
+    padding: 3px 5px;
+
+    font-size: 13px;
     line-height: normal;
+
+    background-color: $input-contrast-background-color;
+    border-radius: $button-border-radius;
+    color: $input-contrast-text-color;
+    cursor: default;
     list-style-type: none;
   }
 
   .select2-selection__choice__remove {
+    display: inline-block;
+    margin-right: 2px;
+
+    font-weight: bold;
+
     color: $input-contrast-text-color;
     cursor: pointer;
-    display: inline-block;
-    font-weight: bold;
-    margin-right: 2px;
 
     &:hover {
       color: $input-hover-background-color;
@@ -61,13 +72,13 @@
     }
 
     .select2-selection__choice {
-      margin-left: 5px;
       margin-right: auto;
+      margin-left: 5px;
     }
 
     .select2-selection__choice__remove {
-      margin-left: 2px;
       margin-right: auto;
+      margin-left: 2px;
     }
   }
 }
