@@ -14,6 +14,7 @@ try:
 except ImportError:
     class SortedMultipleChoiceField:
         pass
+
     class SortedManyToManyField:
         pass
 
@@ -44,7 +45,7 @@ class DjangoManyToMany(models.ManyToManyField):
         fields.
     '''
 
-    def formfield(self, **kwargs):
+    def formfield(self, **kwargs):  # pylint:disable=arguments-differ
         kwargs['widget'] = DjangoManyToManyWidget
         return super().formfield(**kwargs)
 
