@@ -1,7 +1,7 @@
 # Changelog
 
 ## Next release
-* Bump Django version for secruity patches
+* Be less specific about required Django version
 * Fix small issue with edit buttons not hooking up on JetSortedManyToMany
 * Fix error with adding the first item to a SortedManyToMany
 * Fix a Django 2.2 incompatibility
