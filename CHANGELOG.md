@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.6 2019-12-09
+* Fix a bug where only a the first compact inline would be sortable on a page
+* Remove osm_jet/static/edit_inline/compact_inline.js and add the functionality in osm_jet/static/jet/js/src/features/compact-inline.js
+
 ## 1.1.5 - 2019-12-04
 * Be less specific about required Django version
 * Fix small issue with edit buttons not hooking up on JetSortedManyToMany
