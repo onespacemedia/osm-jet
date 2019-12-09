@@ -78,7 +78,6 @@ class JetCompactInline(CompactInline):
     class Media:
         js = [
             staticfiles_storage.url('admin/sortable/sortables.min.js'),
-            staticfiles_storage.url('admin/edit_inline/compact_inline.js'),
         ]
 
         css = {
