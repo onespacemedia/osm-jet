@@ -181,7 +181,11 @@ class JetSortedManyToManyField(SortedManyToManyField):
 
         if self.sorted:
             defaults['form_class'] = JetSortedMultipleChoiceField
-            defaults['model_cls'] = self.rel.to
+
+            try:
+                defaults['model_cls'] = self.rel.to # Django <1.9
+            except AttributeError:
+                defaults['model_cls'] = self.remote_field.model # Django 1.9+
 
         defaults.update(kwargs)
 
