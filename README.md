@@ -8,7 +8,7 @@ OSM Jet currently requires the following pip packages:
 
 | Package | Version | PyPy page | Repo |
 | ------ | ------ | ------ | ------ |
-| Django | 1.11.x | https://pypi.org/project/Django/ | https://github.com/django/django |
+| Django | 1.11.x+ | https://pypi.org/project/Django/ | https://github.com/django/django |
 | Django Jet | 1.0.8 | https://pypi.org/project/django-jet/ | https://github.com/geex-arts/django-jet |
 
 In addition, the [Onespacemedia CMS][osm-cms] is required if you want to use the sitemap dashboard module.
