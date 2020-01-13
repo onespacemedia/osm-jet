@@ -4,7 +4,7 @@ from setuptools import find_packages
 
 setup(
     name='osm-jet',
-    version='1.1.6',
+    version='1.1.7',
     license='agpl-3.0',
     description='A CMS skin for Django. An extension of django-jet with some fixes and additional features',
     author='Onespacemedia',
