@@ -181,7 +181,7 @@ class JetSortedManyToManyField(SortedManyToManyField):
 
         if self.sorted:
             defaults['form_class'] = JetSortedMultipleChoiceField
-            defaults['model_cls'] = self.rel.to
+            defaults['model_cls'] = self.remote_field.model
 
         defaults.update(kwargs)
 
