@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.8 2020-07-06
+* Fix error being thrown if no 'Add' button was present for a DjangoManyToManyField
+
 ## 1.1.7 2020-01-13
 * Fix issue with Django 2.22 and JetSortedManyToManyField.
 
