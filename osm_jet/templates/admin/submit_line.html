@@ -5,7 +5,7 @@
     <input type="submit" value="{% trans 'Save' %}" class="default" name="{% if is_popup %}_save{% else %}_continue{% endif %}" />
   {% endif %}
   {% if show_save_and_add_another or show_save_and_continue %}
-    <div class="submit-row-dropdown">
+    <div class="submit-row-dropdown js-SubmitRow">
       <span>Other save options</span>
       <ul>
         {% if show_save_and_add_another %}<li><input type="submit" value="Duplicate" name="_saveasnew" /></li>{% endif %}
