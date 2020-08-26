@@ -347,7 +347,7 @@
 
                                         <ul class="sidebar-popup-list">
                                             {% if app.url %}
-                                                <li class="sidebar-popup-list-item app-{{ app.app_label }}{{ app.current|yesno:" current," }}">
+                                                <li class="sidebar-popup-list-item sidebar-popup-list-item-app-page app-{{ app.app_label }}{{ app.current|yesno:" current," }}">
                                                     <a href="{{ app.url }}" class="sidebar-popup-list-item-link">{% trans 'Application page' %}</a>
                                                 </li>
                                             {% endif %}

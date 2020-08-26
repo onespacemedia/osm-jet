@@ -10579,7 +10579,7 @@ html.touchevents .editing .sidebar-right-arrow {
   color: #fff;
 }
 
-.sidebar-popup-list-item:first-child {
+.sidebar-popup-list-item-app-page {
   display: none;
 }
 
