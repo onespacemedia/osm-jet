@@ -323,11 +323,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Code to run when the form is submitted
   var contentForm = document.querySelector('#content-main form')
-  contentForm.addEventListener('submit', () => {
-    for (const sortable of sortables) {
-      sortable.updateOrder()
-    }
-  })
+  if (contentForm) {
+    contentForm.addEventListener('submit', () => {
+      for (const sortable of sortables) {
+        sortable.updateOrder()
+      }
+    })
+  }
 })
 /* eslint-enable no-var, object-shorthand, prefer-template */
 

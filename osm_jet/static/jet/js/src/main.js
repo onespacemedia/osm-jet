@@ -15,6 +15,7 @@ require('./layout-updaters/user-tools');
 require('./layout-updaters/changeform-tabs');
 require('./layout-updaters/tabular-inline');
 require('./layout-updaters/stacked-inline');
+require('./layout-updaters/submit-line');
 require('./layout-updaters/related-widget-wrapper');
 require('./layout-updaters/delete-confirmation');
 require('./layout-updaters/branding');

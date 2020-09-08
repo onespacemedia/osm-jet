@@ -2,8 +2,8 @@
   "name": "osm-jet",
   "main": "main.js",
   "scripts": {
-    "dev": "webpack --watch --mode development",
-    "build": "webpack --mode production",
+    "dev": "webpack --watch --mode development & sass --watch osm_jet/static/jet/css/themes/osm/base.scss",
+    "build": "webpack --mode production & sass osm_jet/static/jet/css/themes/osm/base.scss osm_jet/static/jet/css/themes/osm/base.css --style=compressed && postcss osm_jet/static/jet/css/themes/osm/base.css -r --use autoprefixer",
     "lint:css": "stylelint \"osm_jet/static/**/*.css\"",
     "lint:js": "eslint --ext .js,.vue osm_jet/static/**/*.js"
   },
@@ -32,6 +32,9 @@
     "jquery.cookie": "^1.4.1",
     "jquery.mousewheel": "3.1.9",
     "perfect-scrollbar": "git://github.com/noraesae/perfect-scrollbar#0.6.5",
+    "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.2",
+    "sass": "^1.26.10",
     "select2": "^4.0.10",
     "stylelint": "^11.1.1",
     "stylelint-order": "^3.1.1",

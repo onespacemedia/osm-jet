@@ -96,7 +96,7 @@ class SiteMap(DashboardModule):
     title = 'Sitemap'
     template = 'admin/dashboard_modules/sitemap.html'
     draggable = True
-    deletable = False
+    deletable = True
     collapsible = False
 
     def get_context_data(self):

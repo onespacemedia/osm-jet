@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.9 2020-09-08
+* Fix js console error from compact-inline.js.
+* Reduce padding of sitemap items.
+* Fix changelist table overflows if there are lots of fields in list_display.
+* Fix Toolbar layout breaking if there are no items in it.
+* Highlight help-text links.
+* Evenly space fields when there is more than one in a row.  
+
 ## 1.1.8 2020-07-06
 * Fix error being thrown if no 'Add' button was present for a DjangoManyToManyField
 
