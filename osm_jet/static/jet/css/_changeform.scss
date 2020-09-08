@@ -3,10 +3,15 @@
 
 /* FORM ROWS */
 .form-row {
+  display: flex;
   padding: 15px 10px;
 
   border-bottom: 1px solid $Color_InnerBorder;
   overflow: hidden;
+
+  div {
+    flex-grow: 1;
+  }
 
   &:last-child {
     border-bottom: none;
@@ -161,6 +166,14 @@ form .aligned {
     margin-left: 160px;
     padding-left: 10px;
 
+    a {
+      color: $Color_Emerald;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     @include for-mobile {
       margin-left: 0;
       padding-left: 0;
@@ -224,7 +237,9 @@ form .aligned {
 
 fieldset {
   .field-box {
-    float: left;
+    flex-basis: 0;
+    flex-grow: 1;
+
     margin-right: 20px;
   }
 
@@ -479,6 +494,14 @@ fieldset.monospace textarea {
       }
     }
 
+  }
+}
+
+.submit-row-dropdown-invert {
+  input[type='submit'] {
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
   }
 }
 
