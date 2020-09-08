@@ -13,6 +13,8 @@
   }
 
   .results {
+    overflow-x: auto;
+
     @include for-mobile {
       position: relative;
       left: -20px;
@@ -87,6 +89,7 @@
 /* TOOLBAR */
 
 #toolbar {
+  min-height: 37px;
   margin-bottom: 20px;
   display: none;
 
