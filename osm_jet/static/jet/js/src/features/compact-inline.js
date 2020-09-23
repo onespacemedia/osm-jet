@@ -318,7 +318,7 @@ function initWYSIWYG () {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  let sortables = Array.from(document.querySelectorAll('.inline-group')).map(el => new SortableInline({ el }))
+  let sortables = Array.from(document.querySelectorAll('.inline-group.compact')).map(el => new SortableInline({ el }))
   highlightErrors()
 
   // Code to run when the form is submitted
