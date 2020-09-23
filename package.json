@@ -2,7 +2,7 @@
   "name": "osm-jet",
   "main": "main.js",
   "scripts": {
-    "dev": "webpack --watch --mode development & sass --watch osm_jet/static/jet/css/themes/osm/base.scss",
+    "dev": "webpack --watch --mode development & sass --watch osm_jet/static/jet/css/themes/osm/base.scss osm_jet/static/jet/css/themes/osm/base.css",
     "build": "webpack --mode production & sass osm_jet/static/jet/css/themes/osm/base.scss osm_jet/static/jet/css/themes/osm/base.css --style=compressed && postcss osm_jet/static/jet/css/themes/osm/base.css -r --use autoprefixer",
     "lint:css": "stylelint \"osm_jet/static/**/*.css\"",
     "lint:js": "eslint --ext .js,.vue osm_jet/static/**/*.js"

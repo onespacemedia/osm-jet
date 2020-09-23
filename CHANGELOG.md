@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.10 2020-09-23
+* Fix the 'yarn dev' command
+* Fix compact-inline.js throwing console errors when there are non CompactInlines on the page
+
 ## 1.1.9 2020-09-08
 * Fix js console error from compact-inline.js.
 * Reduce padding of sitemap items.
