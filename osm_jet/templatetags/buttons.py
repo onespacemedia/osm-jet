@@ -18,15 +18,18 @@ def save_buttons(context):
     is_popup = context['is_popup']
     save_as = context['save_as']
     original = context.get('original', False)
+    has_add_permission = context['has_add_permission']
+    has_change_permission = context['has_change_permission']
+    has_delete_permission = context['has_delete_permission']
+    show_delete = context.get('show_delete', False) # show_delete is not set on creation pages
+    show_add = context.get('add', False)
+    show_return = context.get('show_return', False)
+
     return {
-        'onclick_attrib': (change and 'onclick="submitOrderForm();"' or ''),
-        'show_delete_link': (not is_popup and context['has_delete_permission'] and (change or context.get('show_delete', False))), # show_delete is not set on creation pages
-        'show_save_as_new': not is_popup and change and save_as,
-        'show_save_and_add_another': context['has_add_permission'] and not is_popup and (not save_as or context['add']),
-        'show_save_and_continue': not is_popup and context['has_change_permission'],
+        'show_delete_link': has_delete_permission and not is_popup and (change or show_delete),
+        'show_save_and_add_another': has_add_permission and not is_popup and (not save_as or show_add),
+        'show_save_and_return': has_change_permission and not is_popup and (not save_as or show_return),
         'is_popup': is_popup,
-        'show_save': True,
         'opts': opts,
         'original': original,
-        'model_name': original._meta.model_name if original else '',
     }
