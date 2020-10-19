@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.11 2020-10-19
+* Refactor the save buttons templatetag and template for CMS versioning
+
 ## 1.1.10 2020-09-23
 * Fix the 'yarn dev' command
 * Fix compact-inline.js throwing console errors when there are non CompactInlines on the page
@@ -10,7 +13,7 @@
 * Fix changelist table overflows if there are lots of fields in list_display.
 * Fix Toolbar layout breaking if there are no items in it.
 * Highlight help-text links.
-* Evenly space fields when there is more than one in a row.  
+* Evenly space fields when there is more than one in a row.
 
 ## 1.1.8 2020-07-06
 * Fix error being thrown if no 'Add' button was present for a DjangoManyToManyField
