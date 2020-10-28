@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.12 2020-10-28
+* Get the location of the icon font using {% static %} tags
+
 ## 1.1.11 2020-10-19
 * Refactor the save buttons templatetag and template for CMS versioning
 
