@@ -9,12 +9,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
 
-<link rel="stylesheet" type="text/css" href="{% static "jet/css/vendor.css" as url %}{{ url|jet_append_version }}" />
-<link rel="stylesheet" type="text/css" href="{% static "jet/css/icons/style.css" as url %}{{ url|jet_append_version }}" />
-<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/base.css" as url %}{{ url|jet_append_version }}" class="base-stylesheet" />
-<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/select2.theme.css" as url %}{{ url|jet_append_version }}" class="select2-stylesheet" />
-<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/jquery-ui.theme.css" as url %}{{ url|jet_append_version }}" class="jquery-ui-stylesheet" />
+<link rel="stylesheet" type="text/css" href="{% static "jet/css/vendor.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "jet/css/icons/style.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/base.css" %}" class="base-stylesheet" />
+<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/select2.theme.css" %}" class="select2-stylesheet" />
+<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/jquery-ui.theme.css" %}" class="jquery-ui-stylesheet" />
 
+<style>
+@font-face {
+  font-family: 'jet-icons';
+  src: url('{% static 'fonts/jet-icons.eot' %}');
+  src: url('{% static 'fonts/jet-icons.eot' %}') format('embedded-opentype'),
+    url('{% static 'fonts/jet-icons.ttf' %}') format('truetype'),
+    url('{% static 'fonts/jet-icons.woff' %}') format('woff'),
+    url('{% static 'fonts/jet-icons.svg' %}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
 {% block extrastyle %}{% endblock %}
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
 {% jet_get_date_format as date_format %}
@@ -27,11 +39,11 @@
     var DATETIME_FORMAT = "{{ datetime_format }}";
 </script>
 <script type="text/javascript" src="{% url 'jet:jsi18n' %}"></script>
-<script src="{% static "jet/js/build/bundle.min.js" as url %}{{ url|jet_append_version }}"></script>
+<script src="{% static "jet/js/build/bundle.min.js" as url %}{{ url }}"></script>
 
 {% jet_static_translation_urls as translation_urls %}
 {% for url in translation_urls %}
-    <script src="{% static url as url %}{{ url|jet_append_version }}"></script>
+    <script src="{% static url as url %}{{ url }}"></script>
 {% endfor %}
 
 {% block extrahead %}{% endblock %}
@@ -347,7 +359,7 @@
 
                                         <ul class="sidebar-popup-list">
                                             {% if app.url %}
-                                                <li class="sidebar-popup-list-item sidebar-popup-list-item-app-page app-{{ app.app_label }}{{ app.current|yesno:" current," }}">
+                                                <li class="sidebar-popup-list-item app-{{ app.app_label }}{{ app.current|yesno:" current," }}">
                                                     <a href="{{ app.url }}" class="sidebar-popup-list-item-link">{% trans 'Application page' %}</a>
                                                 </li>
                                             {% endif %}
