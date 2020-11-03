@@ -14,7 +14,7 @@
     </div>
   {% endif %}
   {% if original and original.get_absolute_url %}
-    <a href="{{ original.get_absolute_url }}?{{ get_preview_parameters }}" target="_blank" class="viewsitelink">
+    <a href="{{ original.get_absolute_url }}?{% get_preview_parameters original %}" target="_blank" class="viewsitelink">
       {% trans "View on site" %}
     </a>
   {% endif %}
