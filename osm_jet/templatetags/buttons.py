@@ -25,11 +25,13 @@ def save_buttons(context):
     show_add = context.get('add', False)
     show_return = context.get('show_return', False)
 
-    return {
+    context.update({
         'show_delete_link': has_delete_permission and not is_popup and (change or show_delete),
         'show_save_and_add_another': has_add_permission and not is_popup and (not save_as or show_add),
         'show_save_and_return': has_change_permission and not is_popup and (not save_as or show_return),
         'is_popup': is_popup,
         'opts': opts,
         'original': original,
-    }
+    })
+
+    return context
