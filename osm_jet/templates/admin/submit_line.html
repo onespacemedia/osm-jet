@@ -3,7 +3,7 @@
 <div class="submit-row">
   <input type="submit" value="{% trans 'Save' %}" class="default" name="{% if is_popup %}_save{% else %}_continue{% endif %}" />
   {% if show_save_as_version %}
-    <input type="submit" value="{% trans 'Save as a new version' %}" formaction="{% url opts|admin_urlname:'addversion' original.pk|admin_urlquote %}"/>
+    <input type="submit" value="{% trans 'Duplicate as a version' %}" formaction="{% url opts|admin_urlname:'addversion' original.pk|admin_urlquote %}"/>
   {% endif %}
 
   {% if show_save_and_add_another or show_save_and_return %}
