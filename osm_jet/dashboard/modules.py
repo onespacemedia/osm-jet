@@ -52,7 +52,7 @@ def generate_sitemap(request):
                 'pageId': page.id,
                 'title': str(page),
                 'changeUrl': page.get_admin_url() + '?{0}={1}'.format(PAGE_FROM_KEY, PAGE_FROM_SITEMAP_VALUE),
-                'siteUrl': '{}?preview=1'.format(page.get_absolute_url()),
+                'siteUrl': page.get_preview_url(),
                 'children': children,
                 'canChange': page_admin.has_change_permission(request, page),
                 'extra_languages': []
