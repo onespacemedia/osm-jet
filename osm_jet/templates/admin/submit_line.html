@@ -2,19 +2,22 @@
 
 <div class="submit-row">
   <input type="submit" value="{% trans 'Save' %}" class="default" name="{% if is_popup %}_save{% else %}_continue{% endif %}" />
+  {% if show_save_as_version %}
+    <input type="submit" value="{% trans 'Duplicate as a version' %}" formaction="{% url opts|admin_urlname:'addversion' original.pk|admin_urlquote %}"/>
+  {% endif %}
 
   {% if show_save_and_add_another or show_save_and_return %}
     <div class="submit-row-dropdown">
       <span>Other save options</span>
       <ul>
         {% if show_save_and_add_another %}<li><input type="submit" value="Duplicate" name="_saveasnew" /></li>{% endif %}
-        {% if show_save_and_add_another %}<li><input type="submit" value="{% trans 'Save and add another' %}" name="_addanother" /></li>{% endif %}
+        {% if show_save_and_add_another %}<li><input type="submit" value="{% trans 'Save and add another' %}" name="_addanother"/></li>{% endif %}
         {% if show_save_and_return %}<li><input type="submit" value="Save and return" name="_save" /></li>{% endif %}
       </ul>
     </div>
   {% endif %}
-  {% if original and original.get_absolute_url %}
-    <a href="{{ original.get_absolute_url }}?{{ get_preview_parameters }}" target="_blank" class="viewsitelink">
+  {% if has_absolute_url %}
+    <a href="{{ absolute_url }}" target="_blank" class="viewsitelink">
       {% trans "View on site" %}
     </a>
   {% endif %}

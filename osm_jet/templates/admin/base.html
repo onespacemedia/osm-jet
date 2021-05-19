@@ -46,7 +46,11 @@
     <script src="{% static url as url %}{{ url }}"></script>
 {% endfor %}
 
-{% block extrahead %}{% endblock %}
+{% block extrahead %}
+    <script>
+        django.gettext = window.gettext
+    </script>
+{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
 {% load i18n %}

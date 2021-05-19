@@ -3,8 +3,8 @@
   <div class="sharing-links">
     <h3>Sharing links:</h3>
     <input class="copy-link" type="submit" data-url="http{% if request.is_secure %}s{% endif %}://{{ settings.SITE_DOMAIN }}{{ original.get_absolute_url|urlencode }}" value="Copy link">
-    {% if original.get_preview_url %}
-      <input class="copy-link" type="submit" data-url="http{% if request.is_secure %}s{% endif %}://{{ settings.SITE_DOMAIN }}{{ original.get_preview_url }}" value="Copy public preview link">
+    {% if original.get_public_preview_url %}
+      <input class="copy-link" type="submit" data-url="http{% if request.is_secure %}s{% endif %}://{{ settings.SITE_DOMAIN }}{{ original.get_public_preview_url }}" value="Copy public preview link">
     {% endif %}
 
     <input class="external-link" type="submit" value="Facebook" name="https://www.facebook.com/sharer.php?u={% if request.is_secure %}https{% else %}http{% endif %}%3A%2F%2F{{ request.META.HTTP_HOST }}{{ original.get_absolute_url|urlencode }}">

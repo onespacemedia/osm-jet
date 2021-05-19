@@ -18,7 +18,7 @@
         <ul class="smp-Content_Languages">
           {% for language_page in entry.extra_languages %}
             <li class="smp-Content_Language">
-              <a href="{{ language_page.changeURL }}" title="Change {{ language_page.language }} page">{{ language_page.language.code|lower }}</a>
+              <a href="{{ language_page.changeUrl }}" title="Change {{ language_page.language }} page">{{ language_page.language.code|lower }}</a>
             </li>
           {% endfor %}
         </ul>

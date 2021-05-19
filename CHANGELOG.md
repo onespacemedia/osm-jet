@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 2021-05-19
+* Add support for OSM CMS versioning
+* Add initial Django 3.2 support
+
 ## 1.1.12 2020-10-28
 * Get the location of the icon font using {% static %} tags
 

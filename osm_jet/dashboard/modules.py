@@ -51,8 +51,8 @@ def generate_sitemap(request):
                 'isOnline': page.is_online,
                 'pageId': page.id,
                 'title': str(page),
-                'changeUrl': reverse('admin:pages_page_change', args=[page.id]) + '?{0}={1}'.format(PAGE_FROM_KEY, PAGE_FROM_SITEMAP_VALUE),
-                'siteUrl': '{}?preview=1'.format(page.get_absolute_url()),
+                'changeUrl': page.get_admin_url() + '?{0}={1}'.format(PAGE_FROM_KEY, PAGE_FROM_SITEMAP_VALUE),
+                'siteUrl': page.get_preview_url(),
                 'children': children,
                 'canChange': page_admin.has_change_permission(request, page),
                 'extra_languages': []
@@ -66,11 +66,11 @@ def generate_sitemap(request):
             # Get all of the language pages
             extra_language_pages = Page.objects.filter(
                 owner=page,
-                is_content_object=True
+                version_for_id__isnull=True,
             ).order_by('-country_group')
 
             outcome_dict['extra_languages'] = [{
-                'changeURL': reverse('admin:pages_page_change', args=[page.id]) + '?{0}={1}'.format(PAGE_FROM_KEY, PAGE_FROM_SITEMAP_VALUE),
+                'changeUrl': page.get_admin_url() + '?{0}={1}'.format(PAGE_FROM_KEY, PAGE_FROM_SITEMAP_VALUE),
                 'language': page.country_group.country_set.first()
             } for page in extra_language_pages]
 

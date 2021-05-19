@@ -1,3 +1,4 @@
+from cms.apps.pages.templatetags.admin_pages import can_add_versions
 from django import template
 
 register = template.Library()
@@ -13,23 +14,22 @@ def save_buttons(context):
         save options are made into a dropdown to avoid a large amount of clutter at the
         bottom of the page.
     '''
-    opts = context['opts']
     change = context['change']
     is_popup = context['is_popup']
-    save_as = context['save_as']
-    original = context.get('original', False)
+    # Using save as new because ModelAdmin defaults to save_as = False
+    save_as = context.get('save_as_new', change)
     has_add_permission = context['has_add_permission']
     has_change_permission = context['has_change_permission']
     has_delete_permission = context['has_delete_permission']
-    show_delete = context.get('show_delete', False) # show_delete is not set on creation pages
-    show_add = context.get('add', False)
-    show_return = context.get('show_return', False)
+    show_delete = context.get('show_delete', change)  # show_delete is not set on creation pages
+    show_return = context.get('show_return', True)
+    save_as_version = context.get('save_as_version', True) and can_add_versions(context)
 
-    return {
-        'show_delete_link': has_delete_permission and not is_popup and (change or show_delete),
-        'show_save_and_add_another': has_add_permission and not is_popup and (not save_as or show_add),
-        'show_save_and_return': has_change_permission and not is_popup and (not save_as or show_return),
-        'is_popup': is_popup,
-        'opts': opts,
-        'original': original,
-    }
+    context.update({
+        'show_delete_link': has_delete_permission and not is_popup and show_delete,
+        'show_save_and_add_another': not is_popup and has_add_permission and change and save_as,
+        'show_save_and_return': has_change_permission and not is_popup and (save_as or show_return),
+        'show_save_as_version': save_as_version,
+    })
+
+    return context

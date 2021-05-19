@@ -1,6 +1,5 @@
 astroid==1.5.3
 django>=1.11,<2.3
-django-jet==1.0.8
 django-sortedm2m==1.5.0
 isort==4.2.15
 onespacemedia-cms==4.0.10
